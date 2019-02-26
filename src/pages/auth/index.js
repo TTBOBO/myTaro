@@ -7,7 +7,7 @@ import './index.scss'
 @connect((user) => ({...user}))
 class Index extends Component {
     config = {
-        navigationBarTitleText: '登录'
+        navigationBarTitleText: '我的'
     }
 
   componentWillReceiveProps (nextProps) {
