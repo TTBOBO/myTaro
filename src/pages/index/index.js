@@ -9,9 +9,9 @@ console.log(Fly)
 class Index extends Component {
 
     config = {
-        navigationBarTitleText: '首页',
-        navigationStyle:"custom",
-        navigationBarBackgroundColor:"#ff0000"
+        navigationBarTitleText: '美璟世界',
+        navigationBarBackgroundColor:"#000",
+        navigationBarTextStyle:'white'
     }
 
     componentWillReceiveProps (nextProps) {
@@ -21,9 +21,7 @@ class Index extends Component {
     componentWillUnmount () { }
 
     async componentDidMount () {
-        console.log(1111);
         const data = await Taro.$ajaxGet('test');
-        console.log(data);
     }
 
     componentDidHide () { 
