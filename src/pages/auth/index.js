@@ -2,7 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { AtIcon } from 'taro-ui'
-import { List } from '~/components'
+import { List  ,CardItem} from '~/components'
 
 import './index.scss'
 
@@ -14,32 +14,32 @@ class Index extends Component {
         navigationBarTextStyle:'white'
     }
 
-  componentWillReceiveProps (nextProps) {
-    // console.log(this.props, nextProps)
-  }
+    componentWillReceiveProps (nextProps) {
+        // console.log(this.props, nextProps)
+    }
 
-  componentWillUnmount () { }
+    componentWillUnmount () { }
 
-  componentDidShow () { }
+    componentDidShow () { }
 
-  componentDidHide () { 
+    componentDidHide () { 
 
-  }
+    }
 
-  Order (list = []){
-    console.log(list)
-    return (
-        list.map((item,index) => {
-            <View className="order-item" key={index}>
-                <Image src={item.icon} className="order-item-img"></Image>
-                <Text className="order-item-title">{item.title}</Text>
-            </View>
-        })
-    )
-    
-}
+    Order (list = []){
+        console.log(list)
+        return (
+            list.map((item,index) => {
+                <View className="order-item" key={index}>
+                    <Image src={item.icon} className="order-item-img"></Image>
+                    <Text className="order-item-title">{item.title}</Text>
+                </View>
+            })
+        )
+        
+    }
 
-  render () {
+    render () {
         const hederList = [{title:"我的订单",url:"/pages/index/index",navigateType:1,isSwitch:false}]
         const data = [{icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待付款"}]
         return (
@@ -64,7 +64,8 @@ class Index extends Component {
                 </View>
             </View>
             <List list={hederList}></List>
-            {this.Order(data)}
+            <CardItem list={data}></CardItem>
+            {/* {this.Order(data)} */}
         </View>
         )
     }
