@@ -26,7 +26,18 @@ class Index extends Component {
 
   }
 
-
+  Order (list = []){
+    console.log(list)
+    return (
+        list.map((item,index) => {
+            <View className="order-item" key={index}>
+                <Image src={item.icon} className="order-item-img"></Image>
+                <Text className="order-item-title">{item.title}</Text>
+            </View>
+        })
+    )
+    
+}
 
   render () {
         const hederList = [{title:"我的订单",url:"/pages/index/index",navigateType:1,isSwitch:false}]
@@ -53,22 +64,9 @@ class Index extends Component {
                 </View>
             </View>
             <List list={hederList}></List>
-            <Order list={data}></Order>
+            {this.Order(data)}
         </View>
         )
     }
 }
-
-function Order (list = []){
-    console.log(list)
-    return (
-        // list.map((item,index) => {
-        //     <View className="order-item" key={index}>
-        //         <Image src={item.icon} className="order-item-img"></Image>
-        //         <Text className="order-item-title">{item.title}</Text>
-        //     </View>
-        // })
-    )
-}
-
 export default Index
