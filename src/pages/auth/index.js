@@ -71,7 +71,7 @@ class Index extends Component {
             <View className="order-con">
                 {servrListItem.map((item,index) => {
                     return (
-                        <CardItem list={item} num = {4} key={index}></CardItem>
+                        <CardItem className="order-con-item" list={item} num = {4} key={index}></CardItem>
                     )
                 })}
                 
