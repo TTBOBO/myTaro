@@ -42,6 +42,7 @@ class Index extends Component {
             <View className="list-con">
                 <AtList>
                     {list.map((item,index) => {
+                        console.log(item)
                         return (
                             !item.isSwitch ? 
                             <AtListItem 

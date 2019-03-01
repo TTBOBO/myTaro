@@ -1,5 +1,6 @@
 @import '../../assets/base.scss';
 .auth-container{
+    background: #d7d7d7;
     .header{
         height: 237px;
         padding-top: 43px;
@@ -69,7 +70,7 @@
                 position: relative;
                 font-size:26px;
                 font-weight:400;
-                color:white;
+                color:$white;
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
@@ -77,6 +78,18 @@
                 .auth-money{
                     margin-right:17px; 
                 }
+            }
+        }
+    }
+    .order-con{
+        background: $white;
+        padding: 16px 0 26px 0;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        .order-con-item{
+            margin-bottom: 45px;
+            &:last-child{
+                margin-bottom: 10px;
             }
         }
     }

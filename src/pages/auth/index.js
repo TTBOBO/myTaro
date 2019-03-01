@@ -26,22 +26,22 @@ class Index extends Component {
 
     }
 
-    Order (list = []){
-        console.log(list)
-        return (
-            list.map((item,index) => {
-                <View className="order-item" key={index}>
-                    <Image src={item.icon} className="order-item-img"></Image>
-                    <Text className="order-item-title">{item.title}</Text>
-                </View>
-            })
-        )
-        
-    }
-
     render () {
-        const hederList = [{title:"我的订单",url:"/pages/index/index",navigateType:1,isSwitch:false}]
-        const data = [{icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待付款"}]
+        const hederList = [{title:"我的订单",url:"/pages/index/index",navigateType:1}]
+        const data = [{icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待付款",bage:5},
+        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待发货"},
+        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待收货"},
+        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待评价"},
+        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"退货售后"}];
+        let data1 = [{icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待付款",bage:5},
+        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待发货"},
+        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待收货"},
+        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待评价"}]
+        const servrListItem = [data1,data1,data1,[{icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待付款",bage:5},
+        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待发货"},
+        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待收货"}]]
+        const servrList = [{title:"我的服务",navigateType:1}]
+        console.log(servrListItem)
         return (
         <View className='auth-container'>
             <View className="header">
@@ -64,8 +64,18 @@ class Index extends Component {
                 </View>
             </View>
             <List list={hederList}></List>
-            <CardItem list={data}></CardItem>
-            {/* {this.Order(data)} */}
+            <View className="order-con">
+                <CardItem list={data}></CardItem>
+            </View>
+            <List list={servrList}></List>
+            <View className="order-con">
+                {servrListItem.map((item,index) => {
+                    return (
+                        <CardItem list={item} num = {4} key={index}></CardItem>
+                    )
+                })}
+                
+            </View>
         </View>
         )
     }

@@ -1,27 +1,41 @@
-import { View, Text } from '@tarojs/components';
+import { View, Text,Image } from '@tarojs/components';
 import Taro, { Component } from '@tarojs/taro';
+import { AtBadge } from 'taro-ui'
 import './index.scss';
-export default class Index extends Component {
+class Index extends Component {
 
-  state={}
+    static defaultProps = {
+        list:[],
+        num:5
+    }
+    state={}
 
-  componentWillMount () {}
-  componentDidMount () {} 
-  componentWillReceiveProps (nextProps,nextContext) {} 
-  componentWillUnmount () {} 
-  componentDidShow () {} 
-  componentDidHide () {} 
-  componentDidCatchError () {} 
-  componentDidNotFound () {} 
-  render() {
-      const { list = [] } = this.props;
-    return (
-        list.map((item,index) => {
-            <View className="order-item" key={index}>
-                <Image src={item.icon} className="order-item-img"></Image>
-                <Text className="order-item-title">{item.title}</Text>
+    componentWillMount () {}
+    componentDidMount () {} 
+    componentWillReceiveProps (nextProps,nextContext) {} 
+    componentDidShow () {} 
+    componentDidHide () {} 
+    render() {
+        const { list,num} = this.props;
+        return (
+            <View className="order-list">
+            {
+                list.map((item,index) => {
+                    return (
+                        <View key={index} className={`order-item ${num == 5 ? 'item-5' : 'item-4'}`}>
+                            <View className="bage-con">
+                                {item.bage && <Text className="bage">{item.bage >= 99 ? '99+' : item.bage }</Text>}
+                                <Image src={item.icon} className="order-item-img"  />
+                            </View>
+                            <Text className="order-item-title">{item.title}</Text>
+                            
+                        </View>
+                       
+                    )
+                })
+            }
             </View>
-        })
-    );
-  }
+        );
+    }
 }
+export default Index;
