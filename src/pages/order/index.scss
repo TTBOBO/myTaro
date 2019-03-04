@@ -1,134 +1,134 @@
-// @import '../../assets/base.scss';
-// .order-container{
-//     position: absolute;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-//     right: 0;
-//     height: 100%;
-//     .tabs{
-//         height: 100%;
-//         // background: red;
-//         .scroll-con{
-//             height: 100%;
+@import '../../assets/base.scss';
+.order-container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    .tabs{
+        height: 100%;
+        // background: red;
+        .scroll-con{
+            height: 100%;
            
-//         }
-//         .tab-order-list{
-//             background: #ddd;
-//             .tab-order-item{
-//                 margin-bottom: 20px;
-//                 background: $white;
+        }
+        .tab-order-list{
+            background: #ddd;
+            // .tab-order-item{
+            //     margin-bottom: 20px;
+            //     background: $white;
                 
-//                 .header{
-//                     height: 60px;
-//                     display: flex;
-//                     flex-flow: row;
-//                     justify-content: space-between;
-//                     padding: 0 31px;
-//                     border-bottom: 2px solid #e6e6e6;
-//                     font-size: 26px;
-//                     align-items: center;
-//                     .pay-status{
-//                         color: $btn-bgcolor;
-//                     }
-//                     .time{
-//                         color: #000;
-//                     }
-//                 }
-//                 .good-info{
-//                     width: 690px;
-//                     margin: 0 auto;
-//                     display: flex;
-//                     flex-flow: row;
-//                     // padding: 0 31px;
-//                     padding-top: 19px;
-//                     border-bottom: 2px solid #e6e6e6;
-//                     padding-bottom: 10px;
-//                     .good-img{
-//                         width: 150px;
-//                         height: 150px;
-//                     }
-//                     .good-center{
-//                         flex: 1;
-//                         margin-left: 24px;
+            //     .header{
+            //         height: 60px;
+            //         display: flex;
+            //         flex-flow: row;
+            //         justify-content: space-between;
+            //         padding: 0 31px;
+            //         border-bottom: 2px solid #e6e6e6;
+            //         font-size: 26px;
+            //         align-items: center;
+            //         .pay-status{
+            //             color: $btn-bgcolor;
+            //         }
+            //         .time{
+            //             color: #000;
+            //         }
+            //     }
+            //     .good-info{
+            //         width: 690px;
+            //         margin: 0 auto;
+            //         display: flex;
+            //         flex-flow: row;
+            //         // padding: 0 31px;
+            //         padding-top: 19px;
+            //         border-bottom: 2px solid #e6e6e6;
+            //         padding-bottom: 10px;
+            //         .good-img{
+            //             width: 150px;
+            //             height: 150px;
+            //         }
+            //         .good-center{
+            //             flex: 1;
+            //             margin-left: 24px;
                         
-//                     }
-//                     .good-name{
-//                         color: #606060;
-//                         font-size: 28px;
-//                         margin-bottom: 20px;
-//                         line-height: 28px;
-//                     }
-//                     .good-des{
-//                         color: #777;
-//                         font-size: 24px;
-//                         line-height: 24px;
-//                     }
-//                     .good-pay-info{
-//                         width: 170px !important;
-//                         display: flex;
-//                         flex-flow: column;
-//                         text-align: right;
-//                         align-items: flex-end;
-//                         .see-good-wl{
-//                             width:150px;
-//                             height:60px;
-//                             border:2px solid #000;
-//                             border-radius:6px;
-//                             text-align: center;
-//                             color: #000;
-//                             line-height: 60px;
-//                             font-size:24px;
-//                             margin-top: 23px;
-//                         }
-//                     }
-//                 }
-//                 .footer{
-//                     height: 156px;
-//                     padding: 26px 30px 24px 30px;
-//                     display: flex;
-//                     flex-flow: column;
-//                     align-items: flex-end;
-//                     .info{
-//                         font-size: 22px;
-//                         color: #000;
-//                     }
-//                     .btn-tool{
-//                         display: flex;
-//                         align-content: flex-end;
-//                         .see-good-wl{
-//                             width:150px;
-//                             height:60px;
-//                             border:2px solid #000;
-//                             border-radius:6px;
-//                             text-align: center;
-//                             color: #000;
-//                             line-height: 60px;
-//                             font-size:24px;
-//                             margin-top: 23px;
-//                             margin-left: 20px;
-//                         }
-//                         .red-btn{
-//                             border-color: $btn-bgcolor;
-//                             color: $btn-bgcolor;
-//                         }
-//                     }
-//                 }
-//             }
+            //         }
+            //         .good-name{
+            //             color: #606060;
+            //             font-size: 28px;
+            //             margin-bottom: 20px;
+            //             line-height: 28px;
+            //         }
+            //         .good-des{
+            //             color: #777;
+            //             font-size: 24px;
+            //             line-height: 24px;
+            //         }
+            //         .good-pay-info{
+            //             width: 170px !important;
+            //             display: flex;
+            //             flex-flow: column;
+            //             text-align: right;
+            //             align-items: flex-end;
+            //             .see-good-wl{
+            //                 width:150px;
+            //                 height:60px;
+            //                 border:2px solid #000;
+            //                 border-radius:6px;
+            //                 text-align: center;
+            //                 color: #000;
+            //                 line-height: 60px;
+            //                 font-size:24px;
+            //                 margin-top: 23px;
+            //             }
+            //         }
+            //     }
+            //     .footer{
+            //         height: 156px;
+            //         padding: 26px 30px 24px 30px;
+            //         display: flex;
+            //         flex-flow: column;
+            //         align-items: flex-end;
+            //         .info{
+            //             font-size: 22px;
+            //             color: #000;
+            //         }
+            //         .btn-tool{
+            //             display: flex;
+            //             align-content: flex-end;
+            //             .see-good-wl{
+            //                 width:150px;
+            //                 height:60px;
+            //                 border:2px solid #000;
+            //                 border-radius:6px;
+            //                 text-align: center;
+            //                 color: #000;
+            //                 line-height: 60px;
+            //                 font-size:24px;
+            //                 margin-top: 23px;
+            //                 margin-left: 20px;
+            //             }
+            //             .red-btn{
+            //                 border-color: $btn-bgcolor;
+            //                 color: $btn-bgcolor;
+            //             }
+            //         }
+            //     }
+            // }
             
-//         }
-//     }
-//     .at-tabs__header{
-//         background-color:#282828 !important;
-//     }
-//     .at-tabs__item--active,.at-tabs__item{
-//         color: $white !important;
-//     }
-//     .at-tabs__item-underline{
-//         background-color:$white !important;
-//         bottom: 2px !important;
-//     }
-//     .at-tabs__body{
-//         height: calc(100% - 86px) !important;
-//     }
-// }
+        }
+    }
+    // .at-tabs__header{
+    //     background-color:#282828 !important;
+    // }
+    // .at-tabs__item--active,.at-tabs__item{
+    //     color: $white !important;
+    // }
+    // .at-tabs__item-underline{
+    //     background-color:$white !important;
+    //     bottom: 2px !important;
+    // }
+    // .at-tabs__body{
+    //     height: calc(100% - 86px) !important;
+    // }
+}
