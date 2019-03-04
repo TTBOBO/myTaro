@@ -37,19 +37,17 @@ class Index extends Component {
 
     render () {
         const { list = [] } = this.props;
-        console.log(list)
         return (
             <View className="list-con">
                 <AtList>
                     {list.map((item,index) => {
-                        console.log(item)
                         return (
                             !item.isSwitch ? 
                             <AtListItem 
                                 title={item.title} 
                                 key={index} 
                                 onClick={() => this.handleClick(item)}
-                                arrow={item.url ? 'right' : ''}
+                                arrow={item.url ? 'right' : 'right'}
                                 thumb={item.thumb || ""}
                                 note={item.note || ""}
 

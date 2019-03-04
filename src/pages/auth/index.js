@@ -32,11 +32,11 @@ class Index extends Component {
     }
 
     render () {
-        const hederList = [{title:"我的订单",url:"/pages/index/index",navigateType:1}]
-        const data = [{icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待付款",bage:5},
-        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待发货"},
-        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待收货"},
-        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待评价"},
+        const hederList = [{title:"我的订单",url:"/pages/order/index"}]
+        const data = [{icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待付款",url:"/pages/order/index?type=1"},
+        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待发货",url:"/pages/order/index?type=3"},
+        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待收货",url:"/pages/order/index?type=4"},
+        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待评价",url:"/pages/order/index?type=5"},
         {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"退货售后"}];
         const servrListItem =  [
             [{icon:"http://10.6.52.35:8081/img/user/group10.png",title:"我的账户"},
@@ -52,7 +52,6 @@ class Index extends Component {
             {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"敬请期待"}]
         ]
         const servrList = [{title:"我的服务",navigateType:1}]
-        console.log(servrListItem)
         return (
         <View className='auth-container'>
             <View className="header">
@@ -94,7 +93,7 @@ class Index extends Component {
             <View className="order-con">
                 {servrListItem.map((item,index) => {
                     return (
-                        <View  className="server-con">
+                        <View  className="server-con" key={index}>
                             <CardItem className="order-con-item" list={item} num = {4} key={index}></CardItem>
                         </View>
                     )

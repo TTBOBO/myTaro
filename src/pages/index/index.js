@@ -4,7 +4,6 @@ import { connect } from '@tarojs/redux'
 import Fly from '../../server/fly.js'
 
 import './index.scss'
-console.log(Fly)
 @connect((user) => ({...user}))
 class Index extends Component {
 

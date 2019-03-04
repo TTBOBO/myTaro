@@ -109,7 +109,7 @@ export default class Index extends Component {
                        {
                             this.state.cart.map((item,index) => {
                                 return (
-                                    <View className="cart_item">
+                                    <View className="cart_item" key={index}>
                                         <View className={`select-icon ${item.select ? 'select' : 'select-no'}`} onClick={() => this.check(index)}></View>
                                         <View className="cart-info">
                                             <Image className='goods-image' src={item.image} />

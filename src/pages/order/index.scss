@@ -11,7 +11,7 @@
         // background: red;
         .scroll-con{
             height: 100%;
-            background: #ddd;
+           
         }
         .tab-order-list{
             background: #ddd;
@@ -114,6 +114,16 @@
                         }
                     }
                 }
+            }
+            .no-goods{
+                font-size:28px;
+                font-weight:400;
+                color:#000;
+                height: 400px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: $white;
             }
         }
     }

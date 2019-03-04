@@ -10,7 +10,6 @@ export default modelExtend(base,{
     effects:{
         *add({payload},{put,call,select}){
             const res = yield select(state => state.user);
-            console.log(1111)
             yield put({type:"save",payload:{num:res.num+1}})
         },
         *del({},{put,call,select}){
