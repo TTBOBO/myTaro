@@ -3,23 +3,23 @@ import { View, Text , Button} from '@tarojs/components';
 // import './index.scss';
 export default class Index extends Component {
 
-   config = {
+    config = {
     navigationBarTitleText: '购物车',
     navigationBarBackgroundColor:"#000",
     navigationBarTextStyle:'white'
-  }
+    }
 
-  state={}
+    state={}
 
-  componentWillMount () {}
-  componentDidMount () {} 
-  componentWillReceiveProps (nextProps,nextContext) {} 
-  componentDidShow () {} 
-  render() {
+    componentWillMount () {}
+    componentDidMount () {} 
+    componentWillReceiveProps (nextProps,nextContext) {} 
+    componentDidShow () {} 
+    render() {
     return (
-      <View>
+        <View>
         1231
-      </View>
+        </View>
     );
-  }
+    }
 }
