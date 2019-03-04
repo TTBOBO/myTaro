@@ -27,6 +27,8 @@ class App extends Component {
 
   config = {
     pages: [
+        'pages/order/index',
+        'pages/cart/index',
         'pages/index/index',
         'pages/auth/index',
     ],
@@ -54,7 +56,7 @@ class App extends Component {
             selectedIconPath: 'assets/img/shouye-s.png'
           },
           {
-            pagePath: "pages/index/index",
+            pagePath: "pages/cart/index",
             text: "购物车",
             iconPath: 'assets/img/cartfill.png',
             selectedIconPath: 'assets/img/cart-s.png'

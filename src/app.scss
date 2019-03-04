@@ -2,9 +2,25 @@
 @import './assets/base.scss';
 .at-list__item {
     padding-left: 30px !important;
+    &:after{
+        // left: 0 !important;
+        // border-bottom:none!important;
+    }
     .item-content__info-title{
         font-size: 28px;
         color: $base-color !important;
         font-weight:400;
     }
 }
+.at-list{
+    &:after{
+        border:none!important;
+    }
+}
+// .list-con{
+//     .at-list__item{
+//         &:after{
+//             border-bottom:none!important;
+//         }
+//     }
+// }

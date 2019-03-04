@@ -26,6 +26,7 @@
                     background: url($base-url+"/user/group10.png");
                     background-size: cover;
                 }
+                
                 .auth-info{
                     width: 425px;
                     display: flex;
@@ -38,10 +39,22 @@
                                 color:$white;
                                 margin-bottom: 16px;
                             }
+                            .no-login{
+                                font-size:24px;
+                                font-weight:400;
+                                color:#C7C7C7;
+                            }
                             .auth-l{
                                 width: 146px;
                                 height: 48px;
+                               
+                            }
+                            .auth-l-ordinary{
                                 background: url($base-url+"/user/group11.png");
+                                background-size: cover;
+                            }
+                            .auth-l-vip{
+                                background: url($base-url+"/user/vip.png");
                                 background-size: cover;
                             }
                             margin-right: 46px;
@@ -81,16 +94,42 @@
             }
         }
     }
+    .uplaod-info{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 30px;
+        align-items: center;
+        height: 88px;
+        background:linear-gradient(90deg,#EBD596,#FFEEBF);
+        .info-des{
+            color: $btn-bgcolor;
+            font-size: 20px;
+        }
+        .info-btn{
+            width: 120px;
+            height: 50px;
+            font-size: 20px;
+        }
+    }
+    
     .order-con{
         background: $white;
         padding: 16px 0 26px 0;
         margin: 0 auto;
-        margin-bottom: 20px;
         .order-con-item{
             margin-bottom: 45px;
             &:last-child{
                 margin-bottom: 10px;
             }
         }
+        
+        .server-con{
+            margin-bottom: 45px;
+            &:last-child{
+                margin-bottom: 10px !important;
+            }
+        }
+        
     }
+    
 }

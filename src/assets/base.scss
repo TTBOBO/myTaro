@@ -9,3 +9,11 @@ $base-url:"http://10.6.52.35:8081/img";
     height: 20px;
     background: #F4F4F4;
 }
+.base-btn{
+    background: $btn-bgcolor;
+    color: $white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
