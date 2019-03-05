@@ -25,11 +25,7 @@ export default class Index extends Component {
         this.props.handleColse && this.props.handleColse();
     }
     handleCancel(){
-        if(this.props.handleCancel){
-            this.props.handleCancel();
-        }else{
-            this.props.dispatch({type:'modal/close',payload:this.props.modalName}) 
-        }
+        this.props.handleCancel ? this.props.handleCancel() : this.props.dispatch({type:'modal/close',payload:this.props.modalName}) ;
     }
     handleConfirm(){
         this.props.handleConfirm()
