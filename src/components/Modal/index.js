@@ -1,7 +1,9 @@
 import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button} from '@tarojs/components';
 import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
+import { connect } from '@tarojs/redux'
 // import './index.scss';
+@connect((modal) => ({...modal}))
 export default class Index extends Component {
 
 
@@ -12,9 +14,7 @@ export default class Index extends Component {
         isOpened:false,
         title:'',
         content:'',
-        closeOnClickOverlay:true,
-        cancelBtn:true,
-        confirmBtn:true
+        closeOnClickOverlay:true
     }
     
     componentWillMount () {}
@@ -25,10 +25,13 @@ export default class Index extends Component {
         this.props.handleColse && this.props.handleColse();
     }
     handleCancel(){
-        this.props.handleCancel && this.props.handleCancel();
+        if(this.props.handleCancel){
+            this.props.handleCancel();
+        }else{
+            this.props.dispatch({type:'modal/close',payload:this.props.modalName}) 
+        }
     }
     handleConfirm(){
-        // this.props.handleConfirm && this.props.handleConfirm();
         this.props.handleConfirm()
     }
     setOpenStatus(status){
@@ -37,34 +40,21 @@ export default class Index extends Component {
         })
     }
     render() {
-        const { isOpened, closeOnClickOverlay ,title , content , cancelText , onText ,cancelBtn , confirmBtn ,isOpenedStatus2} = this.props;
-        let status = isOpened;
-        console.log(isOpened,1111,status)
+        const { modalName, closeOnClickOverlay ,title , content , cancelText , onText ,hcancelBtn , hconfirmBtn} = this.props;
         return (
-            <AtModal
-                isOpened = {status} 
-                title={title}
-                cancelText='取消'
-                confirmText='确认'
-                onCancel={ () => this.handleCancel()}
-                onConfirm={ () => this.props.handleOk() }
-                content={content}
-            />
-        )
-        // return (
-        //     <AtModal 
-        //         isOpened = {status} 
-        //         closeOnClickOverlay = {closeOnClickOverlay}
-        //         >
-        //         {title && <AtModalHeader>title</AtModalHeader>}
-        //         <AtModalContent>
-        //             {content || this.props.children}
-        //         </AtModalContent>
-        //         <AtModalAction> 
-        //             {/* { cancelBtn && <Button onClick={() => this.handleCancel()}>{cancelText || "取消"}</Button> } */}
-        //             <Button onClick={() => this.props.handleOk()}>{onText || "确定"}</Button>
-        //         </AtModalAction>
-        //     </AtModal>
-        // );
+            <AtModal 
+                isOpened = {this.props.modal.modalsName[modalName]} 
+                closeOnClickOverlay = {closeOnClickOverlay}
+                >
+                {title && <AtModalHeader>{title}</AtModalHeader>}
+                <AtModalContent>
+                    {content || this.props.children}
+                </AtModalContent>
+                <AtModalAction> 
+                    {!hcancelBtn && <Button onClick={() => this.handleCancel()}>{cancelText || "取消"}</Button> }
+                    {!hconfirmBtn &&<Button onClick={() => this.props.handleOk()}>{onText || "确定"}</Button>}
+                </AtModalAction>
+            </AtModal>
+        );
     }
 }

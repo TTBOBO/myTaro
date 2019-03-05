@@ -4,6 +4,10 @@ import Ordertem from './Ordertem';
 import { Tabs , Scroll , Modal,Toast} from '~/components'
 import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
 import './index.scss';
+import { connect } from '@tarojs/redux'
+// import './index.scss';
+@connect((modal) => ({...modal}))
+
 export default class Index extends Component {
 
     config = {
@@ -42,20 +46,13 @@ export default class Index extends Component {
         console.log(e)
     }
     componentDidMount () {
-        Taro.showModal({
-            title: '',
-            content: '确认取消订单？',
-            success(res) {
-              if (res.confirm) {
-                console.log('用户点击确定')
-              } else if (res.cancel) {
-                console.log('用户点击取消')
-              }
-            }
-          })
+        this.props.dispatch({type:'modal/open',payload:'modal1'}) 
     } 
     setRefs(node,name){
         this.Refs[name] = node
+    }
+    handleOk(){
+        this.props.dispatch({type:'modal/close',payload:'modal1'}) 
     }
   render() {
     return (
@@ -71,7 +68,12 @@ export default class Index extends Component {
                     })
                 }
             </Tabs>
-            <Toast isOpened={true} text="123" icon={'loading'}  duration={5000} />
+            <Modal 
+                title="提示"
+                modalName="modal1"
+                handleOk={() => this.handleOk()}
+            >12</Modal>
+            {/* <Toast isOpened={true} text="123" icon={'loading'}  duration={5000} /> */}
         </View>
        
     );
