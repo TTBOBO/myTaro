@@ -17,6 +17,9 @@ class Index extends Component {
             
     }
     state = {}
+    static defaultProps = {
+        
+    }
 
     handleClick(item){
         let navigateType = {

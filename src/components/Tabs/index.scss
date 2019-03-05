@@ -120,25 +120,8 @@
     }
     
 }
-.at-tabs__header{
-    background-color:#282828 !important;
-}
-.at-tabs__item--active,.at-tabs__item{
-    color: $white !important;
-}
-.at-tabs__item-underline{
-    background-color:$white !important;
-    bottom: 2px !important;
-}
-.at-tabs__body{
-    height: calc(100% - 86px) !important;
-}
-.tabs{
-    height: 100%;
-}
 .scroll-con{
     height: 100%;
-   
 }
 .tab-order-list{
     background: #ddd;

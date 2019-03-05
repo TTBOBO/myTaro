@@ -49,7 +49,6 @@ class Index extends Component {
                             </View>
                             <Text className="order-item-title">{item.title}</Text>
                         </View>
-                       
                     )
                 })
             }

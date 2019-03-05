@@ -1,8 +1,8 @@
 import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button ,ScrollView ,Image } from '@tarojs/components';
-import { AtTabs, AtTabsPane } from 'taro-ui'
-import orderItem from './order-item';
-import { Tabs} from '~/components'
+import Ordertem from './Ordertem';
+import { Tabs , Scroll , Modal,Toast} from '~/components'
+import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
 import './index.scss';
 export default class Index extends Component {
 
@@ -21,15 +21,16 @@ export default class Index extends Component {
             {title:"待收货",list:[]},
             {title:"待评价1",list:[]},
         ],
-        current:3
+        current:0,
+        child:[],
     }
-
+    Refs = {}
     componentWillMount () {
         this.setState({
             current:parseInt(this.$router.params.type) || 0
         })
     }
-    componentDidMount () {} 
+    
     componentWillReceiveProps (nextProps,nextContext) {} 
     componentDidShow () {} 
     handleClick(e){
@@ -40,42 +41,39 @@ export default class Index extends Component {
     onScrollToLower(e){
         console.log(e)
     }
+    componentDidMount () {
+        Taro.showModal({
+            title: '',
+            content: '确认取消订单？',
+            success(res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+    } 
+    setRefs(node,name){
+        this.Refs[name] = node
+    }
   render() {
     return (
-        <Tabs config={this.state.config} currentIndex={this.state.current}> 
-            <View>123</View>
-            {/* <orderItem item={item}/> */}
-        </Tabs>
-    //   <View className="order-container">
-    //       <AtTabs
-    //         className="tabs"
-    //         current={this.state.current}
-    //         scroll
-    //         tabList={this.state.config}
-    //         onClick={(e) => this.handleClick(e)}>
-    //             {
-    //                 this.state.config.map((item,_index) => {
-    //                     return (
-    //                         <AtTabsPane current={this.state.current} index={_index} className="scroll-con" key={_index}>
-    //                             <ScrollView 
-    //                                 className="scroll-con"
-    //                                 scrollY
-    //                                 scrollWithAnimation
-    //                                 scrollTop='0'
-    //                                 lowerThreshold='20'
-    //                                 upperThreshold='20'
-    //                                 onScrollToLower={this.onScrollToLower}
-    //                             >
-    //                             <View className="tab-order-list">
-                                    
-    //                             </View>
-    //                             </ScrollView>
-    //                         </AtTabsPane>
-    //                     )
-    //                 })
-    //             }
-    //         </AtTabs>
-    //   </View>
+        <View>
+            <Tabs currentIndex={this.state.current} config={this.state.config}> 
+                {
+                    this.state.config.map((_item,index) => {
+                        return (
+                            <Scroll index={index} key={index} current={this.state.current}>
+                                <Ordertem item={_item} /> 
+                            </Scroll>
+                        )
+                    })
+                }
+            </Tabs>
+            <Toast isOpened={true} text="123" icon={'loading'}  duration={5000} />
+        </View>
+       
     );
   }
 }

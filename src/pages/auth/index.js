@@ -20,7 +20,9 @@ class Index extends Component {
 
     componentWillUnmount () { }
 
-    componentDidShow () { }
+    componentDidMount () { 
+        console.log(this.refs)
+    }
 
     componentDidHide () { 
 
@@ -87,7 +89,7 @@ class Index extends Component {
             }
             <List list={hederList}></List>
             <View className="order-con">
-                <CardItem list={data}></CardItem>
+                <CardItem list={data} ref="CardItem"></CardItem>
             </View>
             <List list={servrList}></List>
             <View className="order-con">

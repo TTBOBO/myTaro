@@ -29,11 +29,8 @@
 }
 .at-tabs__body{
     height: calc(100% - 86px) !important;
+    position: relative;
 }
-// .list-con{
-//     .at-list__item{
-//         &:after{
-//             border-bottom:none!important;
-//         }
-//     }
-// }
+.at-tabs-pane{
+    height: 100% !important;
+}

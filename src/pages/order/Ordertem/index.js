@@ -1,19 +1,28 @@
 import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button} from '@tarojs/components';
+import { Modal} from '~/components'
 import './index.scss';
 export default class Index extends Component {
     state={}
-    componentWillMount () {}
-    componentDidMount () {} 
-    componentWillReceiveProps (nextProps,nextContext) {} 
+    componentWillMount () {
+       
+    }
+    componentDidMount () {
+       
+    } 
+    componentWillReceiveProps (nextProps,nextContext) {
+
+    } 
     componentDidShow () {} 
+    handleBtn(item,type){
+    }
     render() {
         return (
             <View>
                 {
                     this.props.item.list.length > 0 ?  <View>
                         {
-                            this.props.item.list.map((_item,index) => {
+                           this.props.item.list.map((_item,index) => {
                                 return (
                                     <View className="tab-order-item" key={index}>
                                         <View className='header'>
@@ -39,7 +48,7 @@ export default class Index extends Component {
                                                 <Text>共 2 件商品 实付款：<Text style={{fontWeight:600}}>¥ 2220 </Text>（含运费¥ 0.00）</Text>
                                             </View>
                                             <View className="btn-tool">
-                                                <View className="see-good-wl">查看物流</View>
+                                                <View className="see-good-wl" onClick={() => this.handleBtn(_item,'wl')}>查看物流</View>
                                                 <View className="see-good-wl red-btn">再次购买</View>
                                             </View>
                                         </View>
@@ -53,6 +62,7 @@ export default class Index extends Component {
                         还没有任何订单哦 !
                     </View>
                 }
+                {/* <Modal /> */}
             </View>
         );
     }
