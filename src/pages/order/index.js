@@ -4,7 +4,6 @@ import Ordertem from './Ordertem';
 import { Tabs , Scroll , Modal,Toast} from '~/components'
 import './index.scss';
 import { connect } from '@tarojs/redux'
-// import './index.scss';
 @connect((modal) => ({...modal}))
 
 export default class Index extends Component {
@@ -17,12 +16,12 @@ export default class Index extends Component {
 
     state={
         config:[
-            {title:"全部订单",list:[{},{},{},{}]},
+            {title:"全部订单",list:[{status:1},{status:2},{status:3},{status:4},{status:5}]},
             {title:"待付款",list:[]},
             {title:"已付款",list:[]},
             {title:"待发货",list:[]},
             {title:"待收货",list:[]},
-            {title:"待评价1",list:[]},
+            {title:"待评价",list:[]},
         ],
         current:0,
         child:[],
@@ -45,13 +44,13 @@ export default class Index extends Component {
         console.log(e)
     }
     componentDidMount () {
-        this.props.dispatch({type:'modal/open',payload:'modal1'}) 
+        // this.props.dispatch({type:'modal/open',payload:'modal1'}) 
     } 
-    setRefs(node,name){
-        this.Refs[name] = node
-    }
     handleOk(){
-        this.props.dispatch({type:'modal/close',payload:'modal1'}) 
+        // this.props.dispatch({type:'modal/close',payload:'modal1'}) 
+    }
+    handleBtn(item,type){
+        console.log(item,type)
     }
   render() {
     return (
@@ -61,7 +60,7 @@ export default class Index extends Component {
                     this.state.config.map((_item,index) => {
                         return (
                             <Scroll index={index} key={index} current={this.state.current}>
-                                <Ordertem item={_item} /> 
+                                <Ordertem item={_item} onHandleBtn={this.handleBtn.bind(this)} /> 
                             </Scroll>
                         )
                     })
@@ -70,7 +69,7 @@ export default class Index extends Component {
             <Modal 
                 title="提示"
                 modalName="modal1"
-                handleOk={() => this.handleOk()}
+                renderFirmBtn = {<Button onClick={() => this.handleOk()}>确定</Button>}
             >12</Modal>
             {/* <Toast isOpened={true} text="123" icon={'loading'}  duration={5000} /> */}
         </View>

@@ -1,6 +1,9 @@
 import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button,Image} from '@tarojs/components';
+import {  Modal,Toast} from '~/components'
 import './index.scss';
+import { connect } from '@tarojs/redux'
+@connect((modal) => ({...modal}))
 export default class Index extends Component {
 
     config = {
@@ -12,6 +15,8 @@ export default class Index extends Component {
 
     state={
             selectAll:false, 
+            checkIndex:null,
+            isOpened:false,
             sum:0,
             cart:[{
                 select:false,
@@ -24,7 +29,7 @@ export default class Index extends Component {
             },{
                 select:false,
                 image:"http://10.6.52.35:8081/img/user/group10.png",
-                name:"无际沙发",
+                name:"无际沙发1",
                 des:"灰布/三人",
                 price:594,
                 old_price:660,
@@ -92,10 +97,18 @@ export default class Index extends Component {
         this.getSum();
     }
     async delItem(index){
-        await this.setState({
+        this.setState({
+            isOpened:true,
+            checkIndex:index
+        })
+    }
+
+    async handleOk(){
+        this.setState({
             cart:this.state.cart.filter((item,_index) => {
-                return _index != index;
-            })
+                return _index != this.state.checkIndex;
+            }),
+            isOpened:false
         },() => this.getSum())
     }
     
@@ -154,7 +167,15 @@ export default class Index extends Component {
                 </View>
             }
             
-            
+            <Modal 
+                title=""
+                isOpened={this.state.isOpened}
+                // renderFirmBtn = {<Button onClick={() => this.handleOk()}>确定</Button>}
+                onHandleOk = {() => this.handleOk()}
+                onHandleCancel = {() => {this.setState({isOpened:false})}}
+            >
+            确认删除？
+            </Modal>
             
         </View>
         );

@@ -19,27 +19,22 @@ export default class Index extends Component {
     
     componentWillMount () {}
     componentDidMount () {} 
-    componentWillReceiveProps (nextProps,nextContext) {} 
+    componentWillReceiveProps (nextProps,nextContext) {
+        this.setState({
+            isOpened:nextProps.isOpened
+        })
+        // console.log(nextProps)
+    } 
     componentDidShow () {} 
     handleColse(){
         this.props.handleColse && this.props.handleColse();
-    }
-    handleCancel(){
-        this.props.handleCancel ? this.props.handleCancel() : this.props.dispatch({type:'modal/close',payload:this.props.modalName}) ;
-    }
-    handleConfirm(){
-        this.props.handleConfirm()
-    }
-    setOpenStatus(status){
-        this.setState({
-            isOpenedStatus:status
-        })
     }
     render() {
         const { modalName, closeOnClickOverlay ,title , content , cancelText , onText ,hcancelBtn , hconfirmBtn} = this.props;
         return (
             <AtModal 
-                isOpened = {this.props.modal.modalsName[modalName]} 
+                // isOpened = {this.props.modal.modalsName[modalName]} 
+                isOpened = {this.state.isOpened} 
                 closeOnClickOverlay = {closeOnClickOverlay}
                 >
                 {title && <AtModalHeader>{title}</AtModalHeader>}
@@ -47,8 +42,10 @@ export default class Index extends Component {
                     {content || this.props.children}
                 </AtModalContent>
                 <AtModalAction> 
-                    {!hcancelBtn && <Button onClick={() => this.handleCancel()}>{cancelText || "取消"}</Button> }
-                    {!hconfirmBtn &&<Button onClick={() => this.props.handleOk()}>{onText || "确定"}</Button>}
+                    {!hcancelBtn && <Button onClick={() => this.props.onHandleCancel()}>{cancelText || "取消"}</Button> }
+                    {/* {this.props.renderFirmBtn} */}
+                    {/* {!hcancelBtn && <Button onClick={() => this.handleCancel()}>{cancelText || "取消"}</Button> } */}
+                    {!hconfirmBtn &&<Button onClick={() => this.props.onHandleOk()}>{onText || "确定"}</Button>}
                 </AtModalAction>
             </AtModal>
         );
