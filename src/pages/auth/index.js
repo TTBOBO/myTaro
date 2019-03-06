@@ -35,23 +35,23 @@ class Index extends Component {
 
     render () {
         const hederList = [{title:"我的订单",url:"/pages/order/index"}]
-        const data = [{icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待付款",url:"/pages/order/index?type=1"},
-        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待发货",url:"/pages/order/index?type=3"},
-        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待收货",url:"/pages/order/index?type=4"},
-        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"待评价",url:"/pages/order/index?type=5"},
-        {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"退货售后"}];
+        const data = [{icon:"http://localhost:8083/img/user/group10.png",title:"待付款",url:"/pages/order/index?type=1"},
+        {icon:"http://localhost:8083/img/user/group10.png",title:"待发货",url:"/pages/order/index?type=3"},
+        {icon:"http://localhost:8083/img/user/group10.png",title:"待收货",url:"/pages/order/index?type=4"},
+        {icon:"http://localhost:8083/img/user/group10.png",title:"待评价",url:"/pages/order/index?type=5"},
+        {icon:"http://localhost:8083/img/user/group10.png",title:"退货售后"}];
         const servrListItem =  [
-            [{icon:"http://10.6.52.35:8081/img/user/group10.png",title:"我的账户"},
-            {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"我的会员卡"},
-            {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"我的优惠券"},
-            {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"在线客服"}],
-            [{icon:"http://10.6.52.35:8081/img/user/group10.png",title:"宝贝收藏"},
-            {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"项目收藏"},
-            {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"地址管理"},
-            {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"系统公告"}],
-            [{icon:"http://10.6.52.35:8081/img/user/group10.png",title:"意见反馈"},
-            {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"视频指南"},
-            {icon:"http://10.6.52.35:8081/img/user/group10.png",title:"敬请期待"}]
+            [{icon:"http://localhost:8083/img/user/group10.png",title:"我的账户"},
+            {icon:"http://localhost:8083/img/user/group10.png",title:"我的会员卡"},
+            {icon:"http://localhost:8083/img/user/group10.png",title:"我的优惠券"},
+            {icon:"http://localhost:8083/img/user/group10.png",title:"在线客服"}],
+            [{icon:"http://localhost:8083/img/user/group10.png",title:"宝贝收藏"},
+            {icon:"http://localhost:8083/img/user/group10.png",title:"项目收藏"},
+            {icon:"http://localhost:8083/img/user/group10.png",title:"地址管理"},
+            {icon:"http://localhost:8083/img/user/group10.png",title:"系统公告"}],
+            [{icon:"http://localhost:8083/img/user/group10.png",title:"意见反馈"},
+            {icon:"http://localhost:8083/img/user/group10.png",title:"视频指南"},
+            {icon:"http://localhost:8083/img/user/group10.png",title:"敬请期待"}]
         ]
         const servrList = [{title:"我的服务",navigateType:1}]
         return (

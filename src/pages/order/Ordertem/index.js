@@ -31,7 +31,7 @@ export default class Index extends Component {
                                         </View>
                                         <View className="good-info">
                                             <View className="good-img">
-                                                <Image style={{width:'100%',height:'100%'}}  src="http://10.6.52.35:8081/img/user/group10.png" />
+                                                <Image style={{width:'100%',height:'100%'}}  src="http://localhost:8083/img/user/group10.png" />
                                             </View>
                                             <View className="good-center">
                                                 <View className="good-name">CU梳妆凳</View>

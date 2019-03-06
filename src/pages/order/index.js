@@ -2,7 +2,6 @@ import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button ,ScrollView ,Image } from '@tarojs/components';
 import Ordertem from './Ordertem';
 import { Tabs , Scroll , Modal,Toast} from '~/components'
-import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from "taro-ui"
 import './index.scss';
 import { connect } from '@tarojs/redux'
 // import './index.scss';

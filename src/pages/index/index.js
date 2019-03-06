@@ -1,7 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import Fly from '../../server/fly.js'
 
 import './index.scss'
 @connect((user) => ({...user}))
