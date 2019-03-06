@@ -174,7 +174,7 @@ export default class Index extends Component {
                 onHandleOk = {() => this.handleOk()}
                 onHandleCancel = {() => {this.setState({isOpened:false})}}
             >
-            确认删除？
+                确认删除？
             </Modal>
             
         </View>

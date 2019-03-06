@@ -25,6 +25,9 @@ export default class Index extends Component {
         ],
         current:0,
         child:[],
+        cancelModal:false,
+        fhModal:false,
+        shModal:false
     }
     Refs = {}
     componentWillMount () {
@@ -50,7 +53,46 @@ export default class Index extends Component {
         // this.props.dispatch({type:'modal/close',payload:'modal1'}) 
     }
     handleBtn(item,type){
-        console.log(item,type)
+        // cancle wl del  buyagain  pay  sh  fh  pl
+        switch (type) {
+            case 'cancle':
+                console.log("取消订单");
+                this.setState({cancelModal:true})
+                break;
+            case 'wl':
+                console.log("查看物流");
+                break;
+            case 'del':
+                console.log("删除订单");
+                break;
+            case 'buyagain':
+                console.log("再次购买");
+                break;
+            case 'pay':
+                console.log("支付");
+                break;
+            case 'sh':
+                console.log("确认收货");
+                break;
+            case 'fh':
+                this.setState({fhModal:true})
+                console.log("提醒发货");
+                break;
+            case 'pj':
+                console.log("去评价");
+                break;
+        
+            default:
+                break;
+        }
+    }
+    handleFh(){
+        this.setState({fhModal:false});
+        Taro.showToast({
+            title: '提醒发货成功',
+            icon: 'success',
+            duration: 2000
+        })
     }
   render() {
     return (
@@ -67,11 +109,31 @@ export default class Index extends Component {
                 }
             </Tabs>
             <Modal 
-                title="提示"
-                modalName="modal1"
-                renderFirmBtn = {<Button onClick={() => this.handleOk()}>确定</Button>}
-            >12</Modal>
-            {/* <Toast isOpened={true} text="123" icon={'loading'}  duration={5000} /> */}
+                title=""
+                isOpened={this.state.cancelModal}
+                onHandleOk = {() => {this.setState({cancelModal:false})}}
+                onHandleCancel = {() => {this.setState({cancelModal:false})}}
+            >
+                确认取消订单吗？
+            </Modal>
+            <Modal 
+                title=""
+                isOpened={this.state.fhModal}
+                hcancelBtn={true}
+                onHandleOk = {() => this.handleFh()}
+            >
+                正常发货时间为1-5个工作日， 请耐心等待～
+            </Modal>
+            <Modal 
+                title=""
+                isOpened={this.state.shModal}
+                onHandleOk = {() => {this.setState({cancelModal:false})}}
+                onHandleCancel = {() => {this.setState({cancelModal:false})}}
+            >
+                确认收货吗？
+            </Modal>
+            
+            
         </View>
        
     );

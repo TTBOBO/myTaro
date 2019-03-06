@@ -27,7 +27,6 @@ export default class Index extends Component {
         this.props.onHandleBtn(item,type);
     }
     render() {
-        console.log(this.props)
         return (
             <View>
                 {
@@ -51,14 +50,14 @@ export default class Index extends Component {
                                             <View className="good-pay-info">
                                                 <View className="good-name">￥660</View>
                                                 <View className="good-des">x 1</View>
-                                                {_item.status == 5 && <View className="see-good-wl">查看物流</View> }
+                                                {_item.status == 5 && <View className="see-good-wl" onClick={() => this.props.onHandleBtn(_item,'wl')}>查看物流</View> }
                                             </View>
                                         </View>
                                         <View className='footer'>
                                             <View className="info">
                                                 <Text>共 2 件商品 实付款：<Text style={{fontWeight:600}}>¥ 2220 </Text>（含运费¥ 0.00）</Text>
                                             </View>
-                                            <View className="btn-tool">
+                                            <View className="btn-tool"> 
                                                 {(_item.status == 1 || _item.status == 2) && <View className="see-good-wl " onClick={() => this.props.onHandleBtn(_item,'cancle')}>取消订单</View>}
                                                 {_item.status == 3 && <View className="see-good-wl " onClick={() => this.props.onHandleBtn(_item,'wl')}>查看物流</View>}
                                                 {(_item.status == 5 || _item.status == 4) && <View className="see-good-wl" onClick={() => this.props.onHandleBtn(_item,'del')}>删除订单</View>}
@@ -66,7 +65,7 @@ export default class Index extends Component {
                                                 {_item.status == 1 && <View className="see-good-wl red-btn" onClick={() => this.props.onHandleBtn(_item,'pay')}>付款</View>}
                                                 {_item.status == 3 && <View className="see-good-wl red-btn" onClick={() => this.props.onHandleBtn(_item,'sh')}>确认收货</View>}
                                                 {_item.status == 2 && <View className="see-good-wl red-btn" onClick={() => this.props.onHandleBtn(_item,'fh')}>提醒发货</View> }
-                                                {_item.status == 4 && <View className="see-good-wl red-btn" onClick={() => this.props.onHandleBtn(_item,'pl')}>去评价</View>}
+                                                {_item.status == 4 && <View className="see-good-wl red-btn" onClick={() => this.props.onHandleBtn(_item,'pj')}>去评价</View>}
                                             </View>
                                         </View>
                                     </View>
