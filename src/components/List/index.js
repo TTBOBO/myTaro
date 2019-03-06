@@ -1,7 +1,10 @@
 import Taro, { Component } from '@tarojs/taro'
 import { AtList, AtListItem } from "taro-ui"
 import { View } from '@tarojs/components';
+import { connect } from '@tarojs/redux'
 import './index.scss';
+
+@connect((user) => ({...user}))
 class Index extends Component {
     componentWillReceiveProps (nextProps) {
         // console.log(this.props, nextProps)
@@ -21,7 +24,7 @@ class Index extends Component {
         
     }
 
-    handleClick(item){
+    handleClick(item,index){
         let navigateType = {
             1:"switchTab",
             2:"reLaunch",
@@ -29,9 +32,15 @@ class Index extends Component {
             4:"navigateTo",
             5:"navigateBack"
         }
-        Taro[navigateType[item.navigateType || 4]]({
-            url:item.url
-        })
+        if(item.custom){
+            console.log(this.props)
+            this.props.handleClick({item,index});
+            return false;
+        }
+        // Taro[navigateType[item.navigateType || 4]]({
+        //     url:item.url
+        // })
+        this.props.dispatch({type:"router/navigateTo",payload:{url:item.url}})
     }
 
     handleChange(e){
@@ -49,11 +58,10 @@ class Index extends Component {
                             <AtListItem 
                                 title={item.title} 
                                 key={index} 
-                                onClick={() => this.handleClick(item)}
+                                onClick={() => this.handleClick(item,index)}
                                 arrow={item.url ? 'right' : 'right'}
                                 thumb={item.thumb || ""}
                                 note={item.note || ""}
-
                             />
                             :
                             <AtListItem 

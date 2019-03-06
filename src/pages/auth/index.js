@@ -32,9 +32,13 @@ class Index extends Component {
             type:"vip"
         }
     }
+    handle({item,index}){
+        this.props.dispatch({type:"router/navigateTo",payload:{url:item.url}})
+        console.log(item,index,this.props.user);
+    }
 
     render () {
-        const hederList = [{title:"我的订单",url:"/pages/order/index"}]
+        const hederList = [{title:"我的订单",url:"/pages/order/index",custom:false}]
         const data = [{icon:"http://localhost:8083/img/user/group10.png",title:"待付款",url:"/pages/order/index?type=1"},
         {icon:"http://localhost:8083/img/user/group10.png",title:"待发货",url:"/pages/order/index?type=3"},
         {icon:"http://localhost:8083/img/user/group10.png",title:"待收货",url:"/pages/order/index?type=4"},
@@ -87,7 +91,7 @@ class Index extends Component {
                     <View className="info-btn base-btn">了解详情</View>
                 </View>
             }
-            <List list={hederList}></List>
+            <List list={hederList} handleClick={(parmas) => this.handle(parmas)}></List>
             <View className="order-con">
                 <CardItem list={data} ref="CardItem"></CardItem>
             </View>
