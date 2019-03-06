@@ -31,6 +31,7 @@ class App extends Component {
         'pages/cart/index',
         'pages/index/index',
         'pages/auth/index',
+        'pages/order/OrderInfo/index',
     ],
     window: {
       backgroundTextStyle: 'light',

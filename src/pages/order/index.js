@@ -1,6 +1,6 @@
 import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button ,ScrollView ,Image } from '@tarojs/components';
-import Ordertem from './Ordertem';
+import OrderItem from './OrderItem';
 import { Tabs , Scroll , Modal,Toast} from '~/components'
 import './index.scss';
 import { connect } from '@tarojs/redux'
@@ -102,7 +102,7 @@ export default class Index extends Component {
                     this.state.config.map((_item,index) => {
                         return (
                             <Scroll index={index} key={index} current={this.state.current}>
-                                <Ordertem item={_item} onHandleBtn={this.handleBtn.bind(this)} /> 
+                                <OrderItem item={_item} onHandleBtn={this.handleBtn.bind(this)} /> 
                             </Scroll>
                         )
                     })
@@ -132,8 +132,6 @@ export default class Index extends Component {
             >
                 确认收货吗？
             </Modal>
-            
-            
         </View>
        
     );

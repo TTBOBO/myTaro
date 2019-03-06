@@ -25,7 +25,7 @@
                     flex-flow: row;
                     justify-content: space-between;
                     padding: 0 31px;
-                    border-bottom: 2px solid #e6e6e6;
+                    border-bottom: 2px solid $base-bgcolor;
                     font-size: 26px;
                     align-items: center;
                     .pay-status{
@@ -42,7 +42,7 @@
                     flex-flow: row;
                     // padding: 0 31px;
                     padding-top: 19px;
-                    border-bottom: 2px solid #e6e6e6;
+                    border-bottom: 2px solid $base-bgcolor;
                     padding-bottom: 10px;
                     .good-img{
                         width: 150px;

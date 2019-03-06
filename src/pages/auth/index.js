@@ -91,11 +91,12 @@ class Index extends Component {
                     <View className="info-btn base-btn">了解详情</View>
                 </View>
             }
-            <List list={hederList} handleClick={(parmas) => this.handle(parmas)}></List>
-            <View className="order-con">
+            <List  list={hederList} handleClick={(parmas) => this.handle(parmas)}></List>
+            
+            <View className="order-con mg-b">
                 <CardItem list={data} ref="CardItem"></CardItem>
             </View>
-            <List list={servrList}></List>
+            <List list={servrList} ></List>
             <View className="order-con">
                 {servrListItem.map((item,index) => {
                     return (
