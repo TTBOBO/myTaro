@@ -1,7 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-
+import { TabBar} from '~/components'
 import './index.scss'
 @connect((user) => ({...user}))
 class Index extends Component {
@@ -46,6 +46,7 @@ class Index extends Component {
       <View className='container'>
         <View className="header-bar"></View>
         <View class="title">保量低风险</View>
+        <TabBar />
       </View>
     )
   }

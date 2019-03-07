@@ -1,6 +1,6 @@
 import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button,Image} from '@tarojs/components';
-import {  Modal,Toast} from '~/components'
+import {  Modal,Toast,TabBar} from '~/components'
 import './index.scss';
 import { connect } from '@tarojs/redux'
 @connect((modal) => ({...modal}))
@@ -158,6 +158,7 @@ export default class Index extends Component {
                             </View>
                             <View className="submit">结算(0)</View>
                         </View>
+                        
                     </View>
                 :
 
@@ -176,7 +177,7 @@ export default class Index extends Component {
             >
                 确认删除？
             </Modal>
-            
+            <TabBar />
         </View>
         );
     }

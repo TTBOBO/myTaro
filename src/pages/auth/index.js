@@ -2,7 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { AtIcon } from 'taro-ui'
-import { List  ,CardItem} from '~/components'
+import { List  ,CardItem,TabBar} from '~/components'
 
 import './index.scss'
 
@@ -107,6 +107,7 @@ class Index extends Component {
                 })}
                 
             </View>
+            <TabBar />
         </View>
         )
     }
