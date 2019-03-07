@@ -77,7 +77,14 @@ class App extends Component {
         ]
       },
   }
-
+  componentWillMount(){
+    Taro.hideTabBar();
+    // setTimeout(() => {
+    //     Taro.switchTab({
+    //         url:"pages/cart/index"
+    //     })
+    // })
+  }
   componentDidMount () {}
 
   componentDidShow () {}

@@ -147,7 +147,7 @@ export default class Index extends Component {
                                 )
                             })
                        }
-                       <View className="settlement">
+                       <View className="settlement fixed">
                             <View className="select-all" onClick={this.checkAll}>
                                 <View className={`select-icon ${this.state.selectAll ? 'select' : 'select-no'}`}></View>
                                 全选

@@ -1,6 +1,7 @@
 import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button ,Image} from '@tarojs/components';
 import './index.scss';
+import coordtransform from 'coordtransform'
 export default class Index extends Component {
 
     config = {
@@ -10,9 +11,39 @@ export default class Index extends Component {
     }
 
     state={}
+    details = {
+        "ProductName":"单餐保姆",
+        "StartTime":"2019-02-21 18:30:00",
+        "ServiceMouths":12,
+        "ServiceAddr":"厦门思明区百家村路",
+        "Distance":1406.0536551385658,
+        "CreTime":"2019-02-21 18:31:35",
+        "BillNo":"1902211831350004",
+        "JobRequirements":" \r\n2/22经纪人小任）1902211825062484同单",
+        "JobContent":"",
+        "SalaryRange":"2000-10000",
+        "SalaryLow":2000,
+        "StartHigh":10000,
+        "Longitude":118.093928,
+        "Latitude":24.456894,
+        "Lng":118.093928,
+        "Lat":24.456894
+    }
+
+    markers= [{
+        iconPath: '../../../assets/img/guoji.png',
+        id: 1,
+        latitude: 24.452137427224173,
+        longitude: 118.08883814412037,
+        width:'50px',
+        height:'50px',
+    }]
 
     componentWillMount () {}
-    componentDidMount () {} 
+    componentDidMount () {
+        var bd09togcj02 = coordtransform.gcj02tobd09(118.08243, 24.44579);
+        console.log(bd09togcj02)
+    } 
     componentWillReceiveProps (nextProps,nextContext) {} 
     componentDidShow () {} 
     render() {
@@ -70,7 +101,8 @@ export default class Index extends Component {
                     <View className="pay-time">订单编号： 33260074</View>
                 </View>
                 <View>
-                    <View>
+                    <map  id="myMap" style="width: 100%; height: 400rpx;" latitude={this.details.Lat} longitude={this.details.Lng} markers={this.markers} enable-zoom={true} enable-scroll={true}></map >
+                    {/* <View>
                         <View>
                             <Text>张三</Text>
                             <Text>178****0834</Text>
@@ -86,7 +118,7 @@ export default class Index extends Component {
                     <View>
                         <View>实付</View>
                         <View>¥ 552.00</View>
-                    </View>
+                    </View> */}
                 </View>
             </View>
         </View>
