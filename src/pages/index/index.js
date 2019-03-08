@@ -1,7 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import { TabBar} from '~/components'
+import { List  ,CardItem,TabBar} from '~/components'
 import './index.scss'
 @connect((user) => ({...user}))
 class Index extends Component {

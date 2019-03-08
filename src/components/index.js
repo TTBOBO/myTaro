@@ -5,3 +5,4 @@ export { default as Modal } from './Modal';
 export { default as Scroll } from './Scroll';
 export { default as Toast } from './Toast';
 export { default as TabBar } from './TabBar';
+export { default as ScrollCom } from './ScrollView';

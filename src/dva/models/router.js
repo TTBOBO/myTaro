@@ -7,7 +7,8 @@ export default modelExtend(base,{
     state:{
         authList:{
             'pages/order/index':false
-        }
+        },
+        tabbarSelected:0
     },
     effects:{
         * navigateTo({payload },{put,select}){
@@ -37,5 +38,10 @@ export default modelExtend(base,{
             url = `${url}?${str}`;
             Taro.redirectTo({ url });
           },
+        * changeSelected({payload} , {put}){
+            yield put({type:"save",payload:{
+                tabbarSelected:payload
+            }})
+        }
     }
 })

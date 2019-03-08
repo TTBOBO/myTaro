@@ -1,6 +1,6 @@
 import Taro , { Component } from '@tarojs/taro';
-import { View, Text , Button,Image} from '@tarojs/components';
-import {  Modal,Toast,TabBar} from '~/components'
+import { View, Text , Button,Image  } from '@tarojs/components';
+import {  Modal,Toast,TabBar ,ScrollCom} from '~/components'
 import './index.scss';
 import { connect } from '@tarojs/redux'
 @connect((modal) => ({...modal}))
@@ -18,9 +18,10 @@ export default class Index extends Component {
             checkIndex:null,
             isOpened:false,
             sum:0,
+            height:0,
             cart:[{
                 select:false,
-                image:"http://10.6.52.35:8081/img/user/group10.png",
+                image:"http://10.6.52.35:8083/img/user/group10.png",
                 name:"无际沙发",
                 des:"灰布/三人",
                 price:594,
@@ -28,7 +29,31 @@ export default class Index extends Component {
                 num:2
             },{
                 select:false,
-                image:"http://10.6.52.35:8081/img/user/group10.png",
+                image:"http://10.6.52.35:8083/img/user/group10.png",
+                name:"无际沙发1",
+                des:"灰布/三人",
+                price:594,
+                old_price:660,
+                num:1
+            },{
+                select:false,
+                image:"http://10.6.52.35:8083/img/user/group10.png",
+                name:"无际沙发1",
+                des:"灰布/三人",
+                price:594,
+                old_price:660,
+                num:1
+            },{
+                select:false,
+                image:"http://10.6.52.35:8083/img/user/group10.png",
+                name:"无际沙发1",
+                des:"灰布/三人",
+                price:594,
+                old_price:660,
+                num:1
+            },{
+                select:false,
+                image:"http://10.6.52.35:8083/img/user/group10.png",
                 name:"无际沙发1",
                 des:"灰布/三人",
                 price:594,
@@ -37,7 +62,13 @@ export default class Index extends Component {
             }]
     }
 
-    componentWillMount () {}
+    componentWillMount () {
+        const {screenHeight} = Taro.getSystemInfoSync();
+        console.log(screenHeight)
+        this.setState({
+            height:screenHeight - 150
+        })
+    }
     componentDidMount () {
         Taro.startPullDownRefresh();
         setTimeout(() => {
@@ -118,7 +149,12 @@ export default class Index extends Component {
             {
                 this.state.cart.length
                     ? 
-                    <View>
+                    <ScrollCom
+                        style="overflow:auto;flex:1;"
+                        // height={500}
+                        scrollY
+                        onScrollToLower={() => {console.log("上拉刷新");}}
+                    >
                        {
                             this.state.cart.map((item,index) => {
                                 return (
@@ -147,19 +183,8 @@ export default class Index extends Component {
                                 )
                             })
                        }
-                       <View className="settlement fixed">
-                            <View className="select-all" onClick={this.checkAll}>
-                                <View className={`select-icon ${this.state.selectAll ? 'select' : 'select-no'}`}></View>
-                                全选
-                            </View>
-                            <View className="submit-info">
-                                <View><Text className='cur-pri-icon'>￥</Text><Text className="cur-pri">{sum}</Text></View>
-                                <View className="des">（含运费￥50.00）</View>
-                            </View>
-                            <View className="submit">结算(0)</View>
-                        </View>
-                        
-                    </View>
+                       </ScrollCom>
+                    
                 :
 
                 <View className="no-goods">
@@ -177,7 +202,20 @@ export default class Index extends Component {
             >
                 确认删除？
             </Modal>
-            <TabBar />
+            {
+                this.state.cart.length ? <View className="settlement">
+                    <View className="select-all" onClick={this.checkAll}>
+                        <View className={`select-icon ${this.state.selectAll ? 'select' : 'select-no'}`}></View>
+                        全选
+                    </View>
+                    <View className="submit-info">
+                        <View><Text className='cur-pri-icon'>￥</Text><Text className="cur-pri">{sum}</Text></View>
+                        <View className="des">（含运费￥50.00）</View>
+                    </View>
+                    <View className="submit">结算(0)</View>
+                </View> : ''
+            }
+            <TabBar  ref="TabBar"/>
         </View>
         );
     }

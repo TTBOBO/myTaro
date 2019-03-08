@@ -1,11 +1,18 @@
 @import '../../assets/base.scss';
 .cart_container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 93px;
+    display: flex;
+    flex-flow: column;
+    // margin-bottom: 191px;
     .cart_item{
         display: flex;
         flex-flow: row;
         align-items: center;
         border:2px solid #E6E6E6;
-        
         
         .cart-info{
             width: 410px;
@@ -60,7 +67,7 @@
                 background-size: cover;
                 top: 13px;
                 right: 10px;
-                background-image: url('http://10.6.52.35:8081/img/cart/delete.png');
+                background-image: url('http://10.6.52.35:8083/img/cart/delete.png');
             }
             .cart-num{
                 display: flex;
@@ -96,13 +103,13 @@
     }
     .settlement{
         width: 100%;
-        position: fixed;
-        bottom: 0;
+        // position: fixed;
         height: 98px;
         display: flex;
         flex-flow: row;
         align-items: center;
         justify-content: center;
+        background: $white;
         .select-icon{
             margin: 0;
         }
@@ -174,9 +181,9 @@
         background-size: cover;
     }
     .select{
-        background-image: url('http://10.6.52.35:8081/img/cart/select.png');
+        background-image: url('http://10.6.52.35:8083/img/cart/select.png');
     }
     .select-no{
-        background-image: url('http://10.6.52.35:8081/img/cart/select_no.png');
+        background-image: url('http://10.6.52.35:8083/img/cart/select_no.png');
     }
 }
