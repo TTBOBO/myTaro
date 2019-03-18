@@ -31,6 +31,7 @@
     "@tarojs/taro-swan": "1.2.4",
     "@tarojs/taro-tt": "1.2.4",
     "@tarojs/taro-weapp": "1.2.4",
+    "async-validate": "^1.0.1",
     "concurrently": "^4.1.0",
     "coordtransform": "^2.1.2",
     "dva-core": "^1.4.0",

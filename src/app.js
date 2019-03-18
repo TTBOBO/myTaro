@@ -33,6 +33,7 @@ class App extends Component {
         'pages/auth/index',
         'pages/order/OrderInfo/index',
         'pages/auth/address/addAddress/index',
+        'pages/auth/address/addressList/index',
     ],
     window: {
       backgroundTextStyle: 'light',

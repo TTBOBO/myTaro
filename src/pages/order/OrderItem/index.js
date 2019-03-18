@@ -12,6 +12,7 @@ export default class Index extends Component {
             5:"交易成功"
         }
     }
+    defaultProps = {}
     componentWillMount () {
     
     }

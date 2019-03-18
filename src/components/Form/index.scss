@@ -15,5 +15,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      .at-button{
+        width:690px !important;
+        height:88px!important;
+        background:rgba(153,51,51,1)!important;
+        border-radius:8px!important;
+      }
     }
   }
