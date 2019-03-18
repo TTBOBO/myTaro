@@ -3,7 +3,7 @@ import { View, Text , Button} from '@tarojs/components';
 import { AtToast } from "taro-ui"
 export default class Index extends Component {
     state={}
-
+    static defaultProps = {}
     componentWillMount () {}
     componentDidMount () {} 
     componentWillReceiveProps (nextProps,nextContext) {} 

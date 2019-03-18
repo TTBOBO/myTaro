@@ -6,10 +6,12 @@ $btn-bgcolor:#993333;
 $white:#fff;
 $base-url:"http://localhost:8083/img";
 $base-bgcolor:#E6E6E6;
+$margin-con-color:#F4F4F4;
 .margin-con{
     height: 20px;
     background: #F4F4F4;
 }
+
 .base-btn{
     background: $btn-bgcolor;
     color: $white;
