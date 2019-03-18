@@ -13,6 +13,7 @@
 		"nodeModules": true
 	},
 	"compileType": "miniprogram",
+	"libVersion": "2.6.2",
 	"condition": {
 		"search": {
 			"current": -1,

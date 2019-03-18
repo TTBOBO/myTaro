@@ -46,7 +46,6 @@ class Index extends Component {
       <View className='container'>
         <View className="header-bar"></View>
         <View class="title">保量低风险</View>
-        <TabBar />
       </View>
     )
   }

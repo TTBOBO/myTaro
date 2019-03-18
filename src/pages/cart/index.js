@@ -215,7 +215,6 @@ export default class Index extends Component {
                     <View className="submit">结算(0)</View>
                 </View> : ''
             }
-            <TabBar  ref="TabBar"/>
         </View>
         );
     }
