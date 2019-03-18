@@ -1,5 +1,5 @@
 import Taro , { Component } from '@tarojs/taro';
-import { AtInput ,AtTextarea ,AtImagePicker  } from 'taro-ui'
+import { AtInput ,AtTextarea ,AtImagePicker,AtToast  } from 'taro-ui'
 import { View, Text , Button , Picker,Checkbox } from '@tarojs/components';
 import util from '~/assets/js/util.js'
 import Validator from '~/assets/js/Validator.js'
@@ -66,26 +66,12 @@ export default class Index extends Component {
                 isOpened:true
             },() =>{
                 setTimeout(() => {
-                        this.setState({
-                            isOpened:false
-                        })
+                    this.setState({
+                        isOpened:false
+                    })
                 },3000)
             })
         })
-        // util.validateData(this.state.formData,this.state.rule).then((res) =>{
-        //     console.log(res);
-        // }).catch(err =>{
-        //     this.setState({
-        //         text:err[0].msg,
-        //         isOpened:true
-        //     },() =>{
-        //         setTimeout(() => {
-        //                 this.setState({
-        //                     isOpened:false
-        //                 })
-        //         },3000)
-        //     })
-        // })
     }
     onGetUserInfo(e){
         console.log(e);
@@ -103,53 +89,53 @@ export default class Index extends Component {
             select:!this.state.select
         })
     }
-  render() {
-    return (
-        <CForm
-            onSubmit={this.onSubmit.bind(this)}
-            loading={false}
-            submitText="提交"
-            // openType="getUserInfo"
-            // onGetUserInfo={this.onGetUserInfo.bind(this)}
-        >
-        <AtInput
-          name='value'
-          title=''
-          type='text'
-          placeholder='姓名'
-          value={this.state.formData.userName}
-          onChange={this.handleChange.bind(this,'userName')}
-        />
-        <AtInput
-          name='value'
-          title=''
-          type='text'
-          placeholder='手机号码'
-          value={this.state.formData.pwd}
-          onChange={this.handleChange.bind(this,'pwd')}
-        />
-        <Picker mode='region'   value={this.state.region} onChange={this.onChange.bind(this,'city')}>
-            {/* {this.formData.city.join(',')} */}
+    render() {
+        return (
+            <CForm
+                onSubmit={this.onSubmit.bind(this)}
+                loading={false}
+                submitText="提交"
+                // openType="getUserInfo"
+                // onGetUserInfo={this.onGetUserInfo.bind(this)}
+            >
             <AtInput
+            name='value'
             title=''
             type='text'
-            placeholder='城市'
-            value={this.state.formData.city.join(',')}
+            placeholder='姓名'
+            value={this.state.formData.userName}
+            onChange={this.handleChange.bind(this,'userName')}
             />
-        </Picker>
-        <AtTextarea
-            count={false}
-            value={this.state.formData.bz}
-            onChange={this.onChange.bind(this,'bz')}
-            maxLength={200}
-            placeholder='详细地址'
-        />
-        <View className="label">
-            <View className={`select-icon  ${this.state.select ? 'select' : 'select-no'}`} onClick={() => this.check()}></View>
-            <Text>设为默认地址</Text>
-        </View>
-        <Toast　isOpened={this.state.isOpened} text={this.state.text}></Toast>
-      </CForm>
-    );
-  }
+            <AtInput
+            name='value'
+            title=''
+            type='text'
+            placeholder='手机号码'
+            value={this.state.formData.pwd}
+            onChange={this.handleChange.bind(this,'pwd')}
+            />
+            <Picker mode='region' value={this.state.region} onChange={this.onChange.bind(this,'city')}>
+                {/* {this.formData.city.join(',')} */}
+                <AtInput
+                title=''
+                type='text'
+                placeholder='城市'
+                value={this.state.formData.city.join(',')}
+                />
+            </Picker>
+            <AtTextarea
+                count={false}
+                value={this.state.formData.bz}
+                onChange={this.onChange.bind(this,'bz')}
+                maxLength={200}
+                placeholder='详细地址'
+            />
+            <View className="label">
+                <View className={`select-icon  ${this.state.select ? 'select' : 'select-no'}`} onClick={() => this.check()}></View>
+                <Text>设为默认地址</Text>
+            </View>
+            <AtToast  isOpened={this.state.isOpened} text={this.state.text} ></AtToast>
+        </CForm>
+        );
+    }
 }

@@ -27,7 +27,6 @@ export default class Validator {
             if(rule[item].validator){
                 rule[item][item] = true;
             }
-            
         }
         this.validateRuler = new WxValidate(rule,messages);
         for(var item in rule){  //自定义验证
