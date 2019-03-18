@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 93px;
+    // bottom: 93px;
     display: flex;
     flex-flow: column;
     // margin-bottom: 191px;
@@ -13,7 +13,9 @@
         flex-flow: row;
         align-items: center;
         border:2px solid #E6E6E6;
-        
+        &:last-child{
+            margin-bottom: 150px;
+        }
         .cart-info{
             width: 410px;
             height: 170px;
@@ -103,8 +105,9 @@
     }
     .settlement{
         width: 100%;
-        // position: fixed;
+        position: fixed;
         height: 98px;
+        bottom: 0;
         display: flex;
         flex-flow: row;
         align-items: center;
