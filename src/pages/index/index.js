@@ -19,7 +19,7 @@ class Index extends Component {
     componentWillUnmount () { }
 
     async componentDidMount () {
-        const data = await Taro.$ajaxGet('test');
+        // const data = await Taro.$ajaxGet('test');
     }
 
     componentDidHide () { 
