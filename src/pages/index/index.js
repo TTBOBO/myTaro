@@ -2,7 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text,Map  ,CoverView ,Swiper ,SwiperItem ,Image  } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { List  ,CardItem,TabBar} from '~/components'
-import { AtActionSheet, AtActionSheetItem } from "taro-ui"
+import Taget from './Taget'
 import './index.scss'
 @connect((user) => ({...user}))
 class Index extends Component {
@@ -21,6 +21,11 @@ class Index extends Component {
 
     async componentDidMount () {
         // const data = await Taro.$ajaxGet('test');
+        // setInterval(() =>{
+        //     this.setState({
+        //         showGrid:!this.state.showGrid
+        //     })
+        // },6000)
     }
 
     componentDidHide () { 
@@ -30,15 +35,11 @@ class Index extends Component {
         this.props.dispatch({type:state == 'add' ? "user/add" : "user/del"}) 
     }
     state = {
-        imgUrls: [
-            'http://image.wufazhuce.com/FnLVOKa7hPmA4wd1rSIDgEFgFwFS',
-            'http://image.wufazhuce.com/Fjp6hwvSOZbIjVrXw0SsSV1LN-rJ',
-            'http://image.wufazhuce.com/FoCDKbpGIOedXx26owKQzHlMyO5y',
-            'http://image.wufazhuce.com/FlAg5B17YIhVv8hUX8b6CwJkl4O6',
-            'http://image.wufazhuce.com/FtcXHjeXKrShdeFa9zGb9TDqEsef'
-        ],
-        current:2,
-        pageYStart:null
+        imgUrls: [{checked:false},{},{},{},{}],
+        toolList:[{},{},{},{},{},{},{},{},{}],
+        current:0,
+        pageYStart:null,
+        showGrid:false
     }
     onTap(e){
         console.log(e)
@@ -56,32 +57,82 @@ class Index extends Component {
     }
     touchEnd(item,index,e){
         if((this.state.pageYStart - e.changedTouches[0].pageY) > 10){
-            console.log('向上滑动10px')
+            // console.log('向上滑动10px')
+            this.changeGrid();
         }
     }
+    showTool(_index){
+        this.setState({
+            imgUrls:this.state.imgUrls.map((item,index) =>{
+                if(_index != undefined && index == _index){
+                    item.checked = !item.checked;
+                }else{
+                    item.checked = false;
+                }
+                return item;
+            })
+        })
+    }
+    changeGrid(){
+        this.setState({
+            showGrid:!this.state.showGrid
+        })
+    }
+    changeCurrentIndex(e){
+        // console
+        this.setState({current:e.detail.current})
+        this.showTool();
+    }
+
 
   render () {
     return (
       <View className='container'>
-        {/* <View className="header-bar"></View> */}
         <View className='upadte-text'>已更新项目120</View>
         <Swiper 
             className='swiper'
             indicatorColor='#999'
             indicatorActiveColor='#333'
             circular
-            // indicatorDots
             current={this.state.current}
-            previousMargin="50px"
-            nextMargin="50px"
-            onChange={(e) => {this.setState({current:e.detail.current})}}
+            previousMargin="40px"
+            nextMargin="40px"
+            onChange={(e) => this.changeCurrentIndex(e)}
         >
             {this.state.imgUrls.map((item,index) => {
-                return (<SwiperItem className="swiper-item">
+                return (<SwiperItem className="swiper-item" key={index}>
+                    <View className={`slide-image ${this.state.current == index ? 'active' : ''}`}>
                         <Image onTouchStart={this.touchStart.bind(this,item,index)} onTouchEnd={this.touchEnd.bind(this,item,index)} src={`http://10.6.52.35:8083/banner.png`} className={`slide-image ${this.state.current == index ? 'active' : ''}`}/>
+                        <View className="slide-tool">
+                            <View onClick={() => this.showTool(index)} className={`select-icon ${item.select ? 'select-no' : 'select-no'}`}></View>
+                            <Text className={` ${this.state.current == index ? 'animated jello fast' : ''}`}>杭州·西溪天堂悦居·赵先生的家</Text>
+                        </View>
+                        {
+                            <Taget checked={item.checked}  tagetList={['转发好友','生成海报','我的收藏','又问必答']}/>
+                        }
+                    </View>
                 </SwiperItem>)
             })}
         </Swiper>
+        {
+            <View className={`grid-con  animated faster ${showGrid ? 'show-grid-con fadeInRight' : 'hidden-grid-con fadeOutRight'}`} >
+                <View className="grid animated rubberBand fast" >
+                    {this.state.toolList.map((item,index) => {
+                        return (<View className="grid-item" key={index}>
+                        <Image className="image" src="http://10.6.52.35:8083/banner.png"/>
+                        <Text className="grid-item-title">微信公众号</Text>
+                    </View>)
+                    })}
+                </View>
+                <View className="grid-close animated fadeInUp faster" onClick={() => this.changeGrid()}>
+                    <Image className="image"  src="http://10.6.52.35:8083/banner.png"/>
+                </View>
+            </View>
+        }
+        {/* <Map />
+        <CoverView class="test">
+        <Button size='mini' type='primary' open-type="getUserInfo">按钮</Button>
+        </CoverView> */}
       </View>
     )
   }
