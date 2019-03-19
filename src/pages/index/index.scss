@@ -26,4 +26,12 @@
             background-color: $base-color;
         }
     }
+    .test{
+        position: fixed;
+        top: 80%;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+    }
 }
