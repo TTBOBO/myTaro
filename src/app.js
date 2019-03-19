@@ -5,9 +5,9 @@ import dva from './dva/dva';
 import models from './dva/models';
 import Index from './pages/index';
 import {ajaxGet,ajaxPost} from './server/ajax';
-
+import 'taro-ui/dist/style/index.scss'
 import './app.scss';
-import 'taro-ui/dist/style/index.scss';
+
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：

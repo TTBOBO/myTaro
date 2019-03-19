@@ -107,7 +107,6 @@ class Index extends Component {
                 })}
                 
             </View>
-            <TabBar />
         </View>
         )
     }
