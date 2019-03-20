@@ -1,6 +1,7 @@
 import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button} from '@tarojs/components';
 import { ScrollCom} from '~/components'
+import { AtSwipeAction } from "taro-ui"
 import './index.scss'
 
 export default class Index extends Component {
@@ -14,7 +15,8 @@ export default class Index extends Component {
             {select:false,sortType:'down',title:"风格"},
             {select:false,sortType:'down',title:"类型"},
             {select:true,sortType:'down',title:"收藏"}],
-        otherList:['全部','现代','全部','现代','全部','现代',]
+        otherList:['全部','现代','全部','现代','全部','现代',],
+        collecteList:['','',1,2]
     }
     defaultProps={
         onGoHome:() => {},
@@ -56,7 +58,7 @@ export default class Index extends Component {
 
 
     render() {
-        const {selectIndex} = this.state;
+        const {selectIndex,collecteList} = this.state;
         const {onGoHome ,onScrollToUpper ,onScrollToLower} = this.props;
         return (
             <View className="collecte-con">
@@ -83,31 +85,37 @@ export default class Index extends Component {
                     </View>
                 </View>
                 <View className="collecte-list">
-                    <ScrollCom 
+                    {collecteList.length && <ScrollCom 
                         onScrollToUpper={onScrollToUpper.bind(this)}
                         onScrollToLower={onScrollToLower.bind(this)}
                         // height={200}
                         scrollY={true}
                     >
                         {
-                            ['','',1,2].map((item,index) => {
-                                return (<View className="collecte-item" key={index}>
-                                    <Image className="pic" src="http://10.6.52.35:8083/banner.png" />
-                                    <View className="right-con">
-                                        <View className="name">安藤忠雄纽约首作，看混凝土诗人怎么重新定义豪宅！</View>
-                                        <View className="auth-info">
-                                            <View className="auth color">ella的家</View>
-                                            <View className="auth-label color">388m²·现代·公寓</View>
-                                            <View className="auth-address-info">
-                                                <View className="address color">布里斯班·阿瑞那</View>
-                                                <View className="time color">第 21 期</View>
+                            collecteList.map((item,index) => {
+                                return (
+                                    <View className="collecte-item" key={index}>
+                                        <Image className="pic" src="http://10.6.52.35:8083/banner.png" />
+                                        <View className="right-con">
+                                            <View className="name">安藤忠雄纽约首作，看混凝土诗人怎么重新定义豪宅！</View>
+                                            <View className="auth-info">
+                                                <View className="auth color">ella的家</View>
+                                                <View className="auth-label color">388m²·现代·公寓</View>
+                                                <View className="auth-address-info">
+                                                    <View className="address color">布里斯班·阿瑞那</View>
+                                                    <View className="time color">第 21 期</View>
+                                                </View>
                                             </View>
                                         </View>
                                     </View>
-                                </View>)
+                                )
                             }) 
                         }
-                    </ScrollCom>
+                        
+                    </ScrollCom>}
+                    {
+                        !collecteList.length && <View className="no-more">您还没有收藏的项目</View>
+                    }
                 </View>
             </View>
         );

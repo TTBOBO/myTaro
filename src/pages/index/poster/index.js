@@ -2,11 +2,8 @@ import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button , Image} from '@tarojs/components';
 import './index.scss'
 import Card from './Card'
-const card = new Card()
-const userInfo = {
-    avatar: 'http://10.6.52.35:8083/banner.png'
-}
-const template = card.do(userInfo)
+// const card = new Card()
+// const template = card.do(userInfo)
 const customStyle = 'margin-left:40rpx'
 export default class Index extends Component {
 
@@ -22,34 +19,58 @@ export default class Index extends Component {
     state={
         imgUrl:"",
         customStyle: customStyle,
-        template: template
+        template: null,
+        userInfo: {
+            avatar: 'http://10.6.52.35:8083/banner.png',
+            avatarUrl:""
+        }
     }
 
-    componentWillMount () {}
+    componentWillMount () {
+        Taro.getUserInfo().then(res =>{
+            const card = new Card()
+            const template = card.do(Object.assign({},this.state.userInfo,{avatarUrl:res.userInfo.avatarUrl}));
+            this.setState({
+                template:template
+            })
+        })
+    }
     componentDidMount () {} 
     componentWillReceiveProps (nextProps,nextContext) {} 
     onImgOK(e){
-        console.log(e.detail.path)
-        // Taro.saveImageToPhotosAlbum({
-        //     filePath: e.detail.path,
-        //     success(res) {
-        //         console.log(res);
-        //     }
-        // })
+        this.setState({
+            imgUrl:e.detail.path
+        },() => {
+            console.log(this.state.imgUrl)
+        })
+    }
+    saveImg(){
+        
+        Taro.saveImageToPhotosAlbum({
+            filePath: this.state.imgUrl,
+            success(res) {
+                console.log(res);
+            }
+        })
+    }
+    changeImg(){
+        let template = this.state.template;
+        template.views[1].text = 'XXX深圳·九榕台·徐女士的家';
+        this.setState({
+            template:template
+        })
     }
     render() {
         return (
         <View className="poster-container">
             <View className="image-con">
-                {!this.state.imgUrl && <View className="poster-pic">
+                {<View className="poster-pic">
                     <painter className="poster-pic" onOnImgErr={this.onImgOK} onOnImgOK={this.onImgOK} palette={template}/>
                 </View>}
-                {this.state.imgUrl && <Image src='http://10.6.52.35:8083/banner.png' className="poster-pic"/>}
-                
                 <View className="image-des">保存至相册分享到朋友圈</View>
                 <View className="btn-con">
-                    <View className="btn change-btn">换一张</View>
-                    <View className="btn save-btn">保存图片</View>
+                    <View className="btn change-btn" onClick={this.changeImg}>换一张</View>
+                    <View className="btn save-btn" onClick={this.saveImg}>保存图片</View>
                 </View>
             </View>
         </View>

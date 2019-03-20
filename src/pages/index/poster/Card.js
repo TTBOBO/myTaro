@@ -13,42 +13,57 @@ export default class LastMayday {
   
     _template () {
       return ({
-        background: '#eee',
-        width: '654rpx',
-        height: '400rpx',
-        borderRadius: '20rpx',
+        background: '#fff',
+        width: '530rpx',
+        height: '942rpx',
+        borderRadius: '0px',
         views: [{
           type: 'image',
           url: this.cardInfo.avatar,
           css: {
-            top: '48rpx',
-            right: '48rpx',
-            width: '192rpx',
-            height: '192rpx',
-            borderRadius: '10rpx',
+            top: '0px',
+            right: '0px',
+            width: '530rpx',
+            height: '842rpx',
+            borderRadius: '0rpx',
+            mode:'scaleToFill'
+            // align: 'right'
+          }
+        },
+        {
+          type: 'text',
+          text: '深圳·九榕台·徐女士的家',
+          css: {
+            right: '20rpx',
+            top: '800rpx',
+            fontSize: '20rpx',
             align: 'right'
           }
         },
-        // {
-        //   type: 'qrcode',
-        //   content: 'https://github.com/Kujiale-Mobile',
-        //   css: {
-        //     left: '70rpx',
-        //     bottom: '30rpx',
-        //     width: '130rpx',
-        //     height: '130rpx'
-        //   }
-        // },
         {
-          type: 'text',
-          text: '酷家乐 移动前端',
-          css: {
-            left: '50rpx',
-            top: '48rpx',
-            fontSize: '40rpx',
-            align: 'left'
+            type: 'image',
+            url: this.cardInfo.avatarUrl,
+            css: {
+              top: '857rpx',
+              left: '20px',
+              width: '70rpx',
+              height: '70rpx',
+              borderRadius: '35rpx',
+              mode:'scaleToFill'
+            }
+          },
+          {
+            type: 'image',
+            url: this.cardInfo.avatarUrl,
+            css: {
+              top: '852rpx',
+              right: '20px',
+              width: '80rpx',
+              height: '80rpx',
+              borderRadius: '40rpx',
+              mode:'scaleToFill'
+            }
           }
-        }
         ]
       })
     }

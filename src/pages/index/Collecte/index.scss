@@ -111,6 +111,15 @@
     .collecte-list{
         // flex: 1;
         height: calc(100% - 221px);
+        .no-more{
+            margin-top: 87px;
+            text-align: center;
+            font-size:26px;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(255,255,255,1);
+            line-height:60px;
+        }
         .collecte-item{
             padding: 19px 30px;
             display: flex;
