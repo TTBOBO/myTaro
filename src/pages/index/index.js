@@ -3,6 +3,7 @@ import { View, Button, Text,Map  ,CoverView ,Swiper ,SwiperItem ,Image  } from '
 import { connect } from '@tarojs/redux'
 import { List  ,CardItem,TabBar} from '~/components'
 import Taget from './Taget'
+import Collecte from './Collecte'
 import './index.scss'
 @connect((user) => ({...user}))
 class Index extends Component {
@@ -39,7 +40,8 @@ class Index extends Component {
         toolList:[{},{},{},{},{},{},{},{},{}],
         current:0,
         pageYStart:null,
-        showGrid:false
+        showGrid:false,
+        showColl:false
     }
     onTap(e){
         console.log(e)
@@ -83,8 +85,39 @@ class Index extends Component {
         this.setState({current:e.detail.current})
         this.showTool();
     }
+    onHandeClick(e,index){
+        console.log(e,index)
+        switch (e) {
+            case 2:
+                this.hadleCollected(index)
+                break;
+            case 1:
+                Taro.navigateTo({
+                    url: './poster/index'
+                })
+                break;
+            default:
+                break;
+        }
+    }
 
-
+    hadleCollected(index){
+        if(!this.state.imgUrls[index].collected){
+            this.setState({
+                imgUrls:this.state.imgUrls.map((item,cindex) =>{
+                    if(cindex == index){
+                        item.collected  = true;
+                    }
+                    return item;
+                })
+            })
+            return false;
+        }
+        this.setState({
+            showColl:true
+        })
+        //打开收藏项目
+    }
   render () {
     return (
       <View className='container'>
@@ -108,14 +141,14 @@ class Index extends Component {
                             <Text className={` ${this.state.current == index ? 'animated jello fast' : ''}`}>杭州·西溪天堂悦居·赵先生的家</Text>
                         </View>
                         {
-                            <Taget checked={item.checked}  tagetList={['转发好友','生成海报','我的收藏','又问必答']}/>
+                            <Taget checked={item.checked} onHandeClick={this.onHandeClick} itemIndex={index}  tagetList={['转发好友','生成海报',item.collected ? '我的收藏' : '收藏项目','又问必答']}/>
                         }
                     </View>
                 </SwiperItem>)
             })}
         </Swiper>
         {
-            <View className={`grid-con  animated faster ${showGrid ? 'show-grid-con fadeInRight' : 'hidden-grid-con fadeOutRight'}`} >
+            <View className={`grid-con  animated faster ${showGrid ? 'show-grid-con fadeInUp' : 'hidden-grid-con fadeOutDown'}`} >
                 <View className="grid animated rubberBand fast" >
                     {this.state.toolList.map((item,index) => {
                         return (<View className="grid-item" key={index}>
@@ -129,6 +162,11 @@ class Index extends Component {
                 </View>
             </View>
         }
+        {this.state.showColl && <Collecte
+            onGoHome={() => {this.setState({showColl:false})}}
+            onScrollToLower={() =>{console.log(122223)}}
+            onScrollToUpper={() =>{console.log(33333)}}
+        ></Collecte>}
         {/* <Map />
         <CoverView class="test">
         <Button size='mini' type='primary' open-type="getUserInfo">按钮</Button>

@@ -28,3 +28,7 @@ $margin-con-color:#F4F4F4;
     /* 在 H5 模式下将会编译成 margin-bottom: 50px，在小程序模式下则会忽略*/
     margin-bottom: taro-tabbar-height;
 }
+.scrollview{
+    width: 100%;
+    height: 100%;
+}

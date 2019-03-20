@@ -10,19 +10,19 @@ export default class Index extends Component {
     defaultProps={
         tagetList:[],
         checked:false,
-        handeClick:() => {}
+        onHandeClick:() => {},
+        itemIndex:{}
     }
 
     state={}
 
     componentDidMount () {} 
     render() {
-        const { tagetList,checked,handeClick } = this.props;
+        const { tagetList,checked,onHandeClick ,itemIndex} = this.props;
         return (
-            // animated faster fadeInUp  fadeOutDown
             <View className={`slide-tool-box ${checked ? ' show' : ' hidden-tool'}`} >
                 {tagetList.map((item,index) => {
-                    return (<View className="item" key={index} onclick={handeClick}>{item}</View>)
+                    return (<View className="item" key={index} onClick={onHandeClick.bind(this,index,itemIndex)}>{item}</View>)
                 })}
             </View>
         );

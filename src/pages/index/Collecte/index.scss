@@ -1,0 +1,165 @@
+@import '../../../assets/base.scss';
+@import '../../../assets/css/animate.scss';
+.collecte-con{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #000;
+    display: flex;
+    flex-flow: column;
+    .header{
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+        height:141px;
+        padding: 0 27px;
+        align-items: center;
+        .search-bar{
+            width:578px;
+            height:68px;
+            background:rgba(40,40,40,1);
+            border-radius:6px;
+            font-size:28px;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(153,153,153,1);
+            line-height:68px;
+            padding-left: 17px;
+        }
+        .home{
+            width: 88px;
+            height: 88px;
+            background-image: url('http://10.6.52.35:8083/img/icon/home.png');
+            background-size: cover;
+        }
+    }
+    .collecte-sort{
+        position: relative;
+        display: flex;
+        flex-flow: row;
+        flex-wrap: nowrap;
+        border: 1px solid rgba(40,40,40,1);
+        height: 80px;
+        .sort-item{
+            flex: 1;
+            text-align: center;
+            line-height: 80px;
+            color: #fff;
+            width:50px;
+            font-size:26px;
+            font-weight:400;
+            color:rgba(255,255,255,1);
+            display: flex;
+            flex-flow: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+            .select-text{
+                color: $btn-bgcolor;
+            }
+            .right-icon{
+                display: flex;
+                flex-flow: column;
+                margin-left: 10px;
+                .icon{
+                    background-size: cover;
+                    width: 14px;
+                    height: 8px;
+                }
+                .up{
+                    background-image: url('http://10.6.52.35:8083/img/icon/up.png');
+                }
+                .up-s{
+                    background-image: url('http://10.6.52.35:8083/img/icon/up-s.png');
+                }
+                .down{
+                    background-image: url('http://10.6.52.35:8083/img/icon/down.png');
+                }
+                .down-s{
+                    background-image: url('http://10.6.52.35:8083/img/icon/down-s.png');
+                }
+            }
+        }
+        .select{
+            color: $btn-bgcolor;
+        }
+        .other-list{
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin: 0;
+            padding: 0 38px;
+            display: flex;
+            flex-flow: row;
+            flex-wrap: wrap;
+            z-index: 100;
+            background: #141414;
+            .text{
+                width: 135px;
+                height: 67px;
+                color: #C7C7C7;
+                line-height: 67px;
+                text-align: center;
+                font-size: 24px;
+            }
+        }
+    }
+    .collecte-list{
+        // flex: 1;
+        height: calc(100% - 221px);
+        .collecte-item{
+            padding: 19px 30px;
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            .pic{
+                width:342px;
+                height:242px;
+                border-radius:4px;
+                margin-right: 20px;
+                object-fit: cover;
+                background-size: cover;
+                overflow: hidden;
+                // flex: 1;
+            }
+            .right-con{
+                width: 328px;
+                display: flex;
+                flex-flow: column;
+                justify-content: space-between;
+                padding: 12px 0px;
+                .name{
+                    font-size:24px;
+                    font-family:PingFangSC-Regular;
+                    font-weight:400;
+                    color:#fff;
+                    line-height:36px;
+                }
+                .auth-info{
+                    display: flex;
+                    flex-flow: column;
+                    justify-content: space-between;
+                    .color{
+                        color:#999999;
+                        font-size:24px;
+                        font-family:PingFangSC-Regular;
+                        font-weight:400;
+                        line-height:36px;
+                    }
+                    
+                    .auth-address-info{
+                        display: flex;
+                        flex-flow: row;
+                        justify-content: space-between;
+                       
+                    }
+                }
+            }
+        }
+    }
+}
