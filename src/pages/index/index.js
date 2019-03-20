@@ -18,9 +18,15 @@ class Index extends Component {
         // console.log(this.props, nextProps)
     }
 
-    componentWillUnmount () { }
+    componentWillUnmount () { 
+        
+    }
 
     async componentDidMount () {
+        console.log()
+        Taro.getExtConfig().then(res =>{
+            console.log(res)
+        })
         // const data = await Taro.$ajaxGet('test');
         // setInterval(() =>{
         //     this.setState({
@@ -135,7 +141,7 @@ class Index extends Component {
             {this.state.imgUrls.map((item,index) => {
                 return (<SwiperItem className="swiper-item" key={index}>
                     <View className={`slide-image ${this.state.current == index ? 'active' : ''}`}>
-                        <Image onTouchStart={this.touchStart.bind(this,item,index)} onTouchEnd={this.touchEnd.bind(this,item,index)} src={`http://10.6.52.35:8083/banner.png`} className={`slide-image ${this.state.current == index ? 'active' : ''}`}/>
+                        <Image onTouchStart={this.touchStart.bind(this,item,index)} onTouchEnd={this.touchEnd.bind(this,item,index)} src={`http://192.168.31.78:8083/banner.png`} className={`slide-image ${this.state.current == index ? 'active' : ''}`}/>
                         <View className="slide-tool">
                             <View onClick={() => this.showTool(index)} className={`select-icon ${item.select ? 'select-no' : 'select-no'}`}></View>
                             <Text className={` ${this.state.current == index ? 'animated jello fast' : ''}`}>杭州·西溪天堂悦居·赵先生的家</Text>
@@ -152,13 +158,13 @@ class Index extends Component {
                 <View className="grid animated rubberBand fast" >
                     {this.state.toolList.map((item,index) => {
                         return (<View className="grid-item" key={index}>
-                        <Image className="image" src="http://10.6.52.35:8083/banner.png"/>
+                        <Image className="image" src="http://192.168.31.78:8083/banner.png"/>
                         <Text className="grid-item-title">微信公众号</Text>
                     </View>)
                     })}
                 </View>
                 <View className="grid-close animated fadeInUp faster" onClick={() => this.changeGrid()}>
-                    <Image className="image"  src="http://10.6.52.35:8083/banner.png"/>
+                    <Image className="image"  src="http://192.168.31.78:8083/banner.png"/>
                 </View>
             </View>
         }

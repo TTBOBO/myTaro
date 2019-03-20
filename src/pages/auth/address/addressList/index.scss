@@ -84,7 +84,7 @@
                 height: 60px;
                 background-size: cover;
                 margin-right: 20px;
-                background-image: url('http://10.6.52.35:8083/img/cart/delete.png');
+                background-image: url($baseUrl+':8083/img/cart/delete.png');
             }
         }
     }

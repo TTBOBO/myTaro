@@ -21,7 +21,7 @@ export default class Index extends Component {
         customStyle: customStyle,
         template: null,
         userInfo: {
-            avatar: 'http://10.6.52.35:8083/banner.png',
+            avatar: 'http://192.168.31.78:8083/banner.png',
             avatarUrl:""
         }
     }

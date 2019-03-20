@@ -32,7 +32,7 @@
         .home{
             width: 88px;
             height: 88px;
-            background-image: url('http://10.6.52.35:8083/img/icon/home.png');
+            background-image: url($baseUrl+':8083/img/icon/home.png');
             background-size: cover;
         }
     }
@@ -70,16 +70,16 @@
                     height: 8px;
                 }
                 .up{
-                    background-image: url('http://10.6.52.35:8083/img/icon/up.png');
+                    background-image: url($baseUrl+':8083/img/icon/up.png');
                 }
                 .up-s{
-                    background-image: url('http://10.6.52.35:8083/img/icon/up-s.png');
+                    background-image: url($baseUrl+':8083/img/icon/up-s.png');
                 }
                 .down{
-                    background-image: url('http://10.6.52.35:8083/img/icon/down.png');
+                    background-image: url($baseUrl+':8083/img/icon/down.png');
                 }
                 .down-s{
-                    background-image: url('http://10.6.52.35:8083/img/icon/down-s.png');
+                    background-image: url($baseUrl+':8083/img/icon/down-s.png');
                 }
             }
         }

@@ -69,7 +69,7 @@
                 background-size: cover;
                 top: 13px;
                 right: 10px;
-                background-image: url('http://10.6.52.35:8083/img/cart/delete.png');
+                background-image: url($baseUrl+':8083/img/cart/delete.png');
             }
             .cart-num{
                 display: flex;
@@ -184,9 +184,9 @@
         background-size: cover;
     }
     .select{
-        background-image: url('http://10.6.52.35:8083/img/cart/select.png');
+        background-image: url($baseUrl+':8083/img/cart/select.png');
     }
     .select-no{
-        background-image: url('http://10.6.52.35:8083/img/cart/select_no.png');
+        background-image: url($baseUrl+':8083/img/cart/select_no.png');
     }
 }

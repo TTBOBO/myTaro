@@ -5,7 +5,7 @@
         height: 237px;
         padding-top: 43px;
         padding-left: 32px;
-        background: url($base-url+"/user/banner.png");
+        background: url($baseUrl+":8083/img/user/banner.png");
         background-size: cover;
         display: flex;
         flex-flow: row;
@@ -23,7 +23,7 @@
                     border-radius: 50%;
                     overflow: hidden;
                     margin-right: 29px;
-                    background: url($base-url+"/user/group10.png");
+                    background: url($baseUrl+":8083/img/user/group10.png");
                     background-size: cover;
                 }
                 
@@ -50,11 +50,11 @@
                                
                             }
                             .auth-l-ordinary{
-                                background: url($base-url+"/user/group11.png");
+                                background: url($baseUrl+":8083/user/group11.png");
                                 background-size: cover;
                             }
                             .auth-l-vip{
-                                background: url($base-url+"/user/vip.png");
+                                background: url($baseUrl+":8083/user/vip.png");
                                 background-size: cover;
                             }
                             margin-right: 46px;
@@ -69,7 +69,7 @@
                                 overflow: hidden;
                                 
                                 margin-right: 29px;
-                                background: url($base-url+"/user/group10.png");
+                                background: url($baseUrl+":8083/user/group10.png");
                                 background-size: cover;
 
                             }
