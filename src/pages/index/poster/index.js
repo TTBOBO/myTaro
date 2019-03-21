@@ -5,6 +5,7 @@ import Card from './Card'
 // const card = new Card()
 // const template = card.do(userInfo)
 const customStyle = 'margin-left:40rpx'
+const bannerUrl = Taro.baseUrl+"/banner.png";
 export default class Index extends Component {
 
     config = {
@@ -21,7 +22,7 @@ export default class Index extends Component {
         customStyle: customStyle,
         template: null,
         userInfo: {
-            avatar: 'http://192.168.31.78:8083/banner.png',
+            avatar: bannerUrl,
             avatarUrl:""
         }
     }
@@ -45,7 +46,7 @@ export default class Index extends Component {
         })
     }
     saveImg(){
-        
+
         Taro.saveImageToPhotosAlbum({
             filePath: this.state.imgUrl,
             success(res) {

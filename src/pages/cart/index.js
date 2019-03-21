@@ -3,6 +3,7 @@ import { View, Text , Button,Image  } from '@tarojs/components';
 import {  Modal,Toast,TabBar ,ScrollCom} from '~/components'
 import './index.scss';
 import { connect } from '@tarojs/redux'
+const groupUrl = Taro.baseUrl+"/img/user/group10.png";
 @connect((modal) => ({...modal}))
 export default class Index extends Component {
 
@@ -21,7 +22,7 @@ export default class Index extends Component {
             height:0,
             cart:[{
                 select:false,
-                image:"http://10.6.52.35:8083/img/user/group10.png",
+                image:groupUrl,
                 name:"无际沙发",
                 des:"灰布/三人",
                 price:594,
@@ -29,7 +30,7 @@ export default class Index extends Component {
                 num:2
             },{
                 select:false,
-                image:"http://10.6.52.35:8083/img/user/group10.png",
+                image:groupUrl,
                 name:"无际沙发1",
                 des:"灰布/三人",
                 price:594,
@@ -37,7 +38,7 @@ export default class Index extends Component {
                 num:1
             },{
                 select:false,
-                image:"http://10.6.52.35:8083/img/user/group10.png",
+                image:groupUrl,
                 name:"无际沙发1",
                 des:"灰布/三人",
                 price:594,
@@ -45,7 +46,7 @@ export default class Index extends Component {
                 num:1
             },{
                 select:false,
-                image:"http://10.6.52.35:8083/img/user/group10.png",
+                image:groupUrl,
                 name:"无际沙发1",
                 des:"灰布/三人",
                 price:594,
@@ -53,7 +54,7 @@ export default class Index extends Component {
                 num:1
             },{
                 select:false,
-                image:"http://10.6.52.35:8083/img/user/group10.png",
+                image:groupUrl,
                 name:"无际沙发1",
                 des:"灰布/三人",
                 price:594,

@@ -2,6 +2,7 @@ import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button} from '@tarojs/components';
 import { Modal} from '~/components'
 import './index.scss';
+const groupUrl = Taro.baseUrl+"/img/user/group10.png";
 export default class Index extends Component {
     state={
         btnStatus:{
@@ -42,7 +43,7 @@ export default class Index extends Component {
                                         </View>
                                         <View className="good-info">
                                             <View className="good-img">
-                                                <Image style={{width:'100%',height:'100%'}}  src="http://localhost:8083/img/user/group10.png" />
+                                                <Image style={{width:'100%',height:'100%'}}  src={groupUrl} />
                                             </View>
                                             <View className="good-center">
                                                 <View className="good-name">CU梳妆凳</View>

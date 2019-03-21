@@ -60,6 +60,7 @@ export default class Index extends Component {
     render() {
         const {selectIndex,collecteList} = this.state;
         const {onGoHome ,onScrollToUpper ,onScrollToLower} = this.props;
+        const bannerUrl = Taro.baseUrl+"/banner.png";
         return (
             <View className="collecte-con">
                 <View className="header">
@@ -95,7 +96,7 @@ export default class Index extends Component {
                             collecteList.map((item,index) => {
                                 return (
                                     <View className="collecte-item" key={index}>
-                                        <Image className="pic" src="http://192.168.31.78:8083/banner.png" />
+                                        <Image className="pic" src={bannerUrl} />
                                         <View className="right-con">
                                             <View className="name">安藤忠雄纽约首作，看混凝土诗人怎么重新定义豪宅！</View>
                                             <View className="auth-info">

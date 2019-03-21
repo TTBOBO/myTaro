@@ -18,6 +18,8 @@ import '~/assets/css/animate.scss'
 
 Taro.$ajaxGet = ajaxGet;
 Taro.$ajaxPost = ajaxPost;
+Taro.baseUrl = 'http://10.6.52.35:8083';
+// Taro.baseUrl = 'http://192.168.31.78:8083';
 const dvaApp = dva.creatApp({
     initialState:{},
     models:models
