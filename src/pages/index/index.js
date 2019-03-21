@@ -58,12 +58,12 @@ class Index extends Component {
             url: '../auth/index'
         })
     }
-    touchStart(item,index,e){
+    touchStart(e){
         this.setState({
             pageYStart:e.touches[0].pageY
         })
     }
-    touchEnd(item,index,e){
+    touchEnd(e){
         if((this.state.pageYStart - e.changedTouches[0].pageY) > 10){
             // console.log('向上滑动10px')
             this.changeGrid();
@@ -124,10 +124,15 @@ class Index extends Component {
         })
         //打开收藏项目
     }
+    serInfo(item){
+        Taro.navigateTo({
+            url: '/pages/index/furniture/index'
+        })
+    }
   render () {
     const bannerUrl = Taro.baseUrl+"/banner.png";
     return (
-        <View className='container'>
+        <View className='container' onTouchStart={this.touchStart.bind(this)} onTouchEnd={this.touchEnd.bind(this)}>
             <View className='upadte-text'>已更新项目120</View>
             <Swiper 
                 className='swiper'
@@ -142,7 +147,7 @@ class Index extends Component {
                 {this.state.imgUrls.map((item,index) => {
                     return (<SwiperItem className="swiper-item" key={index}>
                         <View className={`slide-image ${this.state.current == index ? 'active' : ''}`}>
-                            <Image onTouchStart={this.touchStart.bind(this,item,index)} onTouchEnd={this.touchEnd.bind(this,item,index)} src={bannerUrl} className={`slide-image ${this.state.current == index ? 'active' : ''}`}/>
+                            <Image onClick={this.serInfo.bind(this,item)}   src={bannerUrl} className={`slide-image ${this.state.current == index ? 'active' : ''}`}/>
                             <View className="slide-tool">
                                 <View onClick={() => this.showTool(index)} className={`select-icon ${item.select ? 'select-no' : 'select-no'}`}></View>
                                 <Text className={` ${this.state.current == index ? 'animated jello fast' : ''}`}>杭州·西溪天堂悦居·赵先生的家</Text>

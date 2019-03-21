@@ -108,65 +108,67 @@
             }
         }
     }
-    .collecte-list{
-        // flex: 1;
-        height: calc(100% - 221px);
-        .no-more{
-            margin-top: 87px;
-            text-align: center;
-            font-size:26px;
-            font-family:PingFangSC-Regular;
-            font-weight:400;
-            color:rgba(255,255,255,1);
-            line-height:60px;
+    
+}
+.collecte-list{
+    // flex: 1;
+    height: calc(100% - 221px);
+    .no-more{
+        margin-top: 87px;
+        text-align: center;
+        font-size:26px;
+        font-family:PingFangSC-Regular;
+        font-weight:400;
+        color:rgba(255,255,255,1);
+        line-height:60px;
+    }
+    .collecte-item{
+        padding: 19px 30px;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        border-bottom:2px solid rgba(40,40,40,1);
+        .pic{
+            width:342px;
+            height:242px;
+            border-radius:4px;
+            margin-right: 20px;
+            object-fit: cover;
+            background-size: cover;
+            overflow: hidden;
+            // flex: 1;
         }
-        .collecte-item{
-            padding: 19px 30px;
+        .right-con{
+            width: 328px;
             display: flex;
-            flex-flow: row;
+            flex-flow: column;
             justify-content: space-between;
-            flex-wrap: nowrap;
-            .pic{
-                width:342px;
-                height:242px;
-                border-radius:4px;
-                margin-right: 20px;
-                object-fit: cover;
-                background-size: cover;
-                overflow: hidden;
-                // flex: 1;
+            padding: 12px 0px;
+            .name{
+                font-size:24px;
+                font-family:PingFangSC-Regular;
+                font-weight:400;
+                color:#fff;
+                line-height:36px;
             }
-            .right-con{
-                width: 328px;
+            .auth-info{
                 display: flex;
                 flex-flow: column;
                 justify-content: space-between;
-                padding: 12px 0px;
-                .name{
+                .color{
+                    color:#999999;
                     font-size:24px;
                     font-family:PingFangSC-Regular;
                     font-weight:400;
-                    color:#fff;
                     line-height:36px;
                 }
-                .auth-info{
+                
+                .auth-address-info{
                     display: flex;
-                    flex-flow: column;
+                    flex-flow: row;
                     justify-content: space-between;
-                    .color{
-                        color:#999999;
-                        font-size:24px;
-                        font-family:PingFangSC-Regular;
-                        font-weight:400;
-                        line-height:36px;
-                    }
-                    
-                    .auth-address-info{
-                        display: flex;
-                        flex-flow: row;
-                        justify-content: space-between;
-                       
-                    }
+                   
                 }
             }
         }

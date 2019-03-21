@@ -31,6 +31,7 @@ export default class Index extends Component {
     }
     
   render() {
+      console.log(this.state.current)
     return (
       <View className="order-container">
           <AtTabs

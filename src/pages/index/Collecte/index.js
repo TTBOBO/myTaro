@@ -55,6 +55,11 @@ export default class Index extends Component {
         })
         //告诉父组件获取新的数据
     }
+    onGoSearch(){
+        Taro.navigateTo({
+            url: '/pages/index/search/index'
+        })
+    }
 
 
     render() {
@@ -64,7 +69,7 @@ export default class Index extends Component {
         return (
             <View className="collecte-con">
                 <View className="header">
-                    <View className="search-bar">搜索城市、项目</View>
+                    <View className="search-bar" onClick={this.onGoSearch.bind(this)}>搜索城市、项目</View>
                     <View className="home" onClick={onGoHome.bind(this)}></View>
                 </View>
                 <View className="collecte-sort">
