@@ -1,3 +1,87 @@
+@import '../../../assets/base.scss';
+@import '../../../assets/css/animate.scss';
 .question-container{
-    
+    .header{
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+        // height:141px;
+        padding: 27px 30px;
+        padding-bottom: 0;
+        align-items: center;
+        .search-bar{
+            display: flex;
+            flex-flow: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            .icon{
+                width: 33px;
+                height: 33px;
+                margin-right: 22px;
+            }
+            .search-input{
+                width: 590px;
+                font-size:28px;
+                font-weight:400;
+                color:#C7C7C7;
+            }
+            width:510px;
+            height:60px;
+            // background:rgba(40,40,40,1);
+            border-radius:6px;
+            font-size:28px;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(153,153,153,1);
+            line-height:60px;
+            padding-left: 17px;
+            border:2px solid rgba(199,199,199,1);
+        }
+        .home{
+            width: 150px;
+            height: 60px;
+            background:rgba(153,51,51,1);
+            border-radius:6px;
+            font-size:24px;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(255,255,255,1);
+            line-height:60px;
+            text-align: center;
+        }
+    }
+    .tabs-con{
+        position: absolute;
+        top: 90px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        .content{
+            margin: 0px 31px;
+            .content-item{
+                padding: 48px 0;
+                border-bottom: 1px solid #E6E6E6;
+                .content-header{
+                    display: flex;
+                    justify-content: space-between;
+                    .content-title{
+                        font-size:36px;
+                        font-family:PingFangSC-Medium;
+                        font-weight:500;
+                        color:rgba(0,0,0,1);
+                        line-height:70px;
+                    }
+                }
+                .content-des{
+                    font-size:24px;
+                    height:30rpx;//高度不能乱写，你要自己去看你的两行文字占多少高度
+                    overflow:hidden;//一定要写
+                    text-overflow: ellipsis;//超出省略号
+                    display:-webkit-box;//一定要写
+                    -webkit-line-clamp: 2;//控制行数
+                    -webkit-box-orient: vertical;//一定要写
+                }
+            }
+        }
+    }
 }

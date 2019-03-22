@@ -25,6 +25,36 @@ page{
         border:none!important;
     }
 }
+.tabs-con{
+    .at-tabs__header{
+        background-color:#fff !important;
+        border-bottom: 1px solid #ccc;
+        display: flex;
+        flex-flow: row;
+        height: 77px;
+        padding: 0;
+    }
+    .at-tabs__item{
+        color: #ccc !important;
+        // flex: 1;
+        width:25%;
+        padding:0;
+        text-align:center;
+        align-items:center;
+        // align-content:center;
+        justify-content: center;
+        height:100%;
+        display: flex;
+        float: left;
+    }
+    .at-tabs__item--active{
+        color: #000000 !important;
+    }
+    .tab-order-list{
+        background: transparent !important;
+    }
+}
+
 .at-tabs__header{
     background-color:#282828 !important;
 }

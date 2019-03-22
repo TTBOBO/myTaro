@@ -92,7 +92,6 @@ class Index extends Component {
         this.showTool();
     }
     onHandeClick(e,index){
-        console.log(e,index)
         switch (e) {
             case 2:
                 this.hadleCollected(index)
@@ -100,6 +99,11 @@ class Index extends Component {
             case 1:
                 Taro.navigateTo({
                     url: './poster/index'
+                })
+                break;
+            case 3:
+                Taro.navigateTo({
+                    url: './question/index'
                 })
                 break;
             default:

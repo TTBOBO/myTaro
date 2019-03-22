@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -93,6 +93,13 @@
 					"id": -1,
 					"name": "搜索",
 					"pathName": "pages/index/search/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "有问必答",
+					"pathName": "pages/index/question/index",
 					"scene": null
 				}
 			]

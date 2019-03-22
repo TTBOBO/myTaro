@@ -102,7 +102,9 @@ export default class Index extends Component {
                     this.state.config.map((_item,index) => {
                         return (
                             <Scroll index={index} key={index} current={this.state.current}>
-                                <OrderItem item={_item} onHandleBtn={this.handleBtn.bind(this)} /> 
+                                <View className="tab-order-list">
+                                    <OrderItem item={_item} onHandleBtn={this.handleBtn.bind(this)} /> 
+                                </View>
                             </Scroll>
                         )
                     })
