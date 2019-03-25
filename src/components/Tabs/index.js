@@ -22,7 +22,7 @@ export default class Index extends Component {
         this.setState({
             current:e
         })
-        // this.props.onTabsChange(e)
+        this.props.onTabsChange(e)
     }
     state={
         current:0
