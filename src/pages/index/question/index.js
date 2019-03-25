@@ -15,7 +15,7 @@ export default class Index extends Component {
         code:"",
         current:0,
         config:[
-            {title:"常见问题",list:[]},
+            {title:"常见问题",list:[{long:true},{long:false}]},
             {title:"家居",list:[]},
             {title:"产品",list:[]},
             {title:"会员",list:[]},
@@ -52,29 +52,30 @@ export default class Index extends Component {
                 </View>
                 <View className="tabs-con">
                     <Tabs currentIndex={this.state.current} config={this.state.config} > 
-                    {
-                        this.state.config.map((_item,index) => {
-                            return (
-                                
-                                    <Scroll index={index} key={index} current={this.state.current}>
-                                        <View className="content">
-                                            <View className="content-item">
-                                                <View className="content-header">
-                                                    <View className="content-title">如何退换货 ？</View>
-                                                    <AtIcon value='chevron-right' size='20' color='#000'></AtIcon>
-                                                </View>
-                                                <View className="content-des">
-                                                    本店大部分产品为现货，少量为预售，现货产品的选项中会标注［现货］，预售产品会写明到货时间，如［9月30日到货］，选项中未标请…咨询客服。可以按照您要求的时间发货。本店大部分产品为现货，少量为预售，现货产品的选项中会标注［现货］，预售产品会写明到货时间，如［9月30日到货］，选项中未标注的请咨询客服。可以按照您要求的时间发货。
-                                                </View>
-                                            </View>
+                        {
+                            this.state.config.map((_item,index) => {
+                                return (
+                                    <Scroll index={index} key={index+'tabs-con'} current={this.state.current} style={{height:'100%'}}>
+                                        <View className="content" >
+                                            {_item.list.map((item,index) =>{
+                                                return (
+                                                    <View className="content-item" key={index+'content'}>
+                                                        <View className="content-header">
+                                                            <View className="content-title">如何退换货 ？</View>
+                                                            {item.long && <AtIcon value='chevron-right' size='20' color='#000'></AtIcon>}
+                                                        </View>
+                                                        <View className={`${item.long ? 'content-des' :'content-desone'}`}>
+                                                            本店大部分产品为现货，少量为预售，现货产品的选项中会标注［现货］，预售产品会写明到货时间，如［9月30日到货］，选项中未标请…咨询客服。可以按照您要求的时间发货。本店大部分产品为现货，少量为预售，现货产品的选项中会标注［现货］，预售产品会写明到货时间，如［9月30日到货］，选项中未标注的请咨询客服。可以按照您要求的时间发货。
+                                                        </View>
+                                                    </View>)
+                                                })
+                                            } 
                                         </View>
                                     </Scroll>
-                                
-                                
-                            )
-                        })
-                    }
-                </Tabs>
+                                )
+                            })
+                        }
+                    </Tabs>
                 </View>
             </View>
         );

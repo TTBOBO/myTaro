@@ -42,7 +42,7 @@ class Index extends Component {
             {
                 list.map((item,index) => {
                     return (
-                        <View key={index} className={`order-item ${num == 5 ? 'item-5' : 'item-4'}`} onClick={() => this.handleClick(item,index)}>
+                        <View key={index+'list'} className={`order-item ${num == 5 ? 'item-5' : 'item-4'}`} onClick={() => this.handleClick(item,index)}>
                             <View className="bage-con">
                                 {item.bage && <Text className="bage">{item.bage >= 99 ? '99+' : item.bage }</Text>}
                                 <Image src={item.icon} className="order-item-img"  />

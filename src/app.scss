@@ -7,6 +7,7 @@ page{
     bottom: 0;
     left: 0;
     right: 0;
+    overflow: hidden;
 }
 .at-list__item {
     padding-left: 30px !important;
@@ -95,8 +96,8 @@ page{
     background-size: cover;
 }
 .select{
-    background-image: url('http://10.6.52.35:8083/img/cart/select.png');
+    background-image: url($baseUrl+':8083/img/cart/select.png');
 }
 .select-no{
-    background-image: url('http://10.6.52.35:8083/img/cart/select_no.png');
+    background-image: url($baseUrl+':8083/img/cart/select_no.png');
 }
