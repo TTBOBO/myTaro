@@ -18,6 +18,8 @@ import '~/assets/css/animate.scss'
 
 Taro.$ajaxGet = ajaxGet;
 Taro.$ajaxPost = ajaxPost;
+Taro.baseUrl = 'http://10.6.52.35:8083';
+// Taro.baseUrl = 'http://192.168.31.78:8083';
 const dvaApp = dva.creatApp({
     initialState:{},
     models:models
@@ -31,6 +33,12 @@ class App extends Component {
         'pages/order/index',
         'pages/cart/index',
         'pages/index/index',
+        'pages/index/poster/index',
+        'pages/index/search/index',
+        'pages/index/furniture/index',
+        'pages/index/question/index',
+        'pages/index/adviser/index',
+        'pages/index/atlas/index',
         'pages/auth/index',
         'pages/order/OrderInfo/index',
         'pages/auth/address/addAddress/index',

@@ -3,6 +3,7 @@ import { View, Button, Text,Map  ,CoverView ,Swiper ,SwiperItem ,Image  } from '
 import { connect } from '@tarojs/redux'
 import { List  ,CardItem,TabBar} from '~/components'
 import Taget from './Taget'
+import Collecte from './Collecte'
 import './index.scss'
 @connect((user) => ({...user}))
 class Index extends Component {
@@ -17,9 +18,15 @@ class Index extends Component {
         // console.log(this.props, nextProps)
     }
 
-    componentWillUnmount () { }
+    componentWillUnmount () { 
+        
+    }
 
     async componentDidMount () {
+        console.log()
+        Taro.getExtConfig().then(res =>{
+            console.log(res)
+        })
         // const data = await Taro.$ajaxGet('test');
         // setInterval(() =>{
         //     this.setState({
@@ -39,7 +46,8 @@ class Index extends Component {
         toolList:[{},{},{},{},{},{},{},{},{}],
         current:0,
         pageYStart:null,
-        showGrid:false
+        showGrid:false,
+        showColl:false
     }
     onTap(e){
         console.log(e)
@@ -50,12 +58,12 @@ class Index extends Component {
             url: '../auth/index'
         })
     }
-    touchStart(item,index,e){
+    touchStart(e){
         this.setState({
             pageYStart:e.touches[0].pageY
         })
     }
-    touchEnd(item,index,e){
+    touchEnd(e){
         if((this.state.pageYStart - e.changedTouches[0].pageY) > 10){
             // console.log('向上滑动10px')
             this.changeGrid();
@@ -83,59 +91,104 @@ class Index extends Component {
         this.setState({current:e.detail.current})
         this.showTool();
     }
-
-
-  render () {
-    return (
-      <View className='container'>
-        <View className='upadte-text'>已更新项目120</View>
-        <Swiper 
-            className='swiper'
-            indicatorColor='#999'
-            indicatorActiveColor='#333'
-            circular
-            current={this.state.current}
-            previousMargin="40px"
-            nextMargin="40px"
-            onChange={(e) => this.changeCurrentIndex(e)}
-        >
-            {this.state.imgUrls.map((item,index) => {
-                return (<SwiperItem className="swiper-item" key={index}>
-                    <View className={`slide-image ${this.state.current == index ? 'active' : ''}`}>
-                        <Image onTouchStart={this.touchStart.bind(this,item,index)} onTouchEnd={this.touchEnd.bind(this,item,index)} src={`http://10.6.52.35:8083/banner.png`} className={`slide-image ${this.state.current == index ? 'active' : ''}`}/>
-                        <View className="slide-tool">
-                            <View onClick={() => this.showTool(index)} className={`select-icon ${item.select ? 'select-no' : 'select-no'}`}></View>
-                            <Text className={` ${this.state.current == index ? 'animated jello fast' : ''}`}>杭州·西溪天堂悦居·赵先生的家</Text>
-                        </View>
-                        {
-                            <Taget checked={item.checked}  tagetList={['转发好友','生成海报','我的收藏','又问必答']}/>
-                        }
-                    </View>
-                </SwiperItem>)
-            })}
-        </Swiper>
-        {
-            <View className={`grid-con  animated faster ${showGrid ? 'show-grid-con fadeInRight' : 'hidden-grid-con fadeOutRight'}`} >
-                <View className="grid animated rubberBand fast" >
-                    {this.state.toolList.map((item,index) => {
-                        return (<View className="grid-item" key={index}>
-                        <Image className="image" src="http://10.6.52.35:8083/banner.png"/>
-                        <Text className="grid-item-title">微信公众号</Text>
-                    </View>)
-                    })}
-                </View>
-                <View className="grid-close animated fadeInUp faster" onClick={() => this.changeGrid()}>
-                    <Image className="image"  src="http://10.6.52.35:8083/banner.png"/>
-                </View>
-            </View>
+    onHandeClick(e,index){
+        switch (e) {
+            case 2:
+                this.hadleCollected(index)
+                break;
+            case 1:
+                Taro.navigateTo({
+                    url: './poster/index'
+                })
+                break;
+            case 3:
+                Taro.navigateTo({
+                    url: './question/index'
+                })
+                break;
+            default:
+                break;
         }
-        {/* <Map />
-        <CoverView class="test">
-        <Button size='mini' type='primary' open-type="getUserInfo">按钮</Button>
-        </CoverView> */}
-      </View>
+    }
+
+    hadleCollected(index){
+        if(!this.state.imgUrls[index].collected){
+            this.setState({
+                imgUrls:this.state.imgUrls.map((item,cindex) =>{
+                    if(cindex == index){
+                        item.collected  = true;
+                    }
+                    return item;
+                })
+            })
+            return false;
+        }
+        this.setState({
+            showColl:true
+        })
+        //打开收藏项目
+    }
+    serInfo(item){
+        Taro.navigateTo({
+            url: '/pages/index/furniture/index'
+        })
+    }
+  render () {
+    const bannerUrl = Taro.baseUrl+"/banner.png";
+    return (
+        <View className='container' onTouchStart={this.touchStart.bind(this)} onTouchEnd={this.touchEnd.bind(this)}>
+            <View className='upadte-text'>已更新项目120</View>
+            <Swiper 
+                className='swiper'
+                indicatorColor='#999'
+                indicatorActiveColor='#333'
+                circular
+                current={this.state.current}
+                previousMargin="40px"
+                nextMargin="40px"
+                onChange={(e) => this.changeCurrentIndex(e)}
+            >
+                {this.state.imgUrls.map((item,index) => {
+                    return (<SwiperItem className="swiper-item" key={index}>
+                        <View className={`slide-image ${this.state.current == index ? 'active' : ''}`}>
+                            <Image onClick={this.serInfo.bind(this,item)}   src={bannerUrl} className={`slide-image ${this.state.current == index ? 'active' : ''}`}/>
+                            <View className="slide-tool">
+                                <View onClick={() => this.showTool(index)} className={`select-icon ${item.select ? 'select-no' : 'select-no'}`}></View>
+                                <Text className={` ${this.state.current == index ? 'animated jello fast' : ''}`}>杭州·西溪天堂悦居·赵先生的家</Text>
+                            </View>
+                            {
+                                <Taget checked={item.checked} onHandeClick={this.onHandeClick} itemIndex={index}  tagetList={['转发好友','生成海报',item.collected ? '我的收藏' : '收藏项目','有问必答']}/>
+                            }
+                        </View>
+                    </SwiperItem>)
+                })}
+            </Swiper>
+            {
+                <View className={`grid-con  animated faster ${showGrid ? 'show-grid-con fadeInUp' : 'hidden-grid-con fadeOutDown'}`} >
+                    <View className="grid animated rubberBand fast" >
+                        {this.state.toolList.map((item,index) => {
+                            return (<View className="grid-item" key={index}>
+                            <Image className="image" src={bannerUrl}/>
+                            <Text className="grid-item-title">微信公众号</Text>
+                        </View>)
+                        })}
+                    </View>
+                    <View className="grid-close animated fadeInUp faster" onClick={() => this.changeGrid()}>
+                        <Image className="image"  src={bannerUrl}/>
+                    </View>
+                </View>
+            }
+            {this.state.showColl && <Collecte
+                onGoHome={() => {this.setState({showColl:false})}}
+                onScrollToLower={() =>{console.log(122223)}}
+                onScrollToUpper={() =>{console.log(33333)}}
+            ></Collecte>}
+            {/* <Map />
+            <CoverView class="test">
+            <Button size='mini' type='primary' open-type="getUserInfo">按钮</Button>
+            </CoverView> */}
+        </View>
     )
   }
 }
 
-export default Index

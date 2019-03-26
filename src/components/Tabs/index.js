@@ -5,15 +5,10 @@ import './index.scss';
 export default class Index extends Component {
 
     static defaultProps = {
-        // config:[
-        //     {title:"全部订单",list:[{},{},{},{}]},
-        //     {title:"待付款",list:[]},
-        //     {title:"已付款",list:[]},
-        //     {title:"待发货",list:[]},
-        //     {title:"待收货",list:[]},
-        //     {title:"待评价",list:[]},
-        // ],
-        // currentIndex:0
+        config:[],
+        currentIndex:0,
+        onTabsChange:() =>{},
+        scroll:true
     }
 
     componentWillMount () {
@@ -28,22 +23,26 @@ export default class Index extends Component {
         this.setState({
             current:e
         })
+        this.props.onTabsChange(e)
+    }
+    state={
+        current:0
     }
     
-  render() {
-    return (
-      <View className="order-container">
-          <AtTabs
-            className="tabs"
-            current={this.state.current}
-            scroll
-            tabList={this.props.config}
-            onClick={(e) => this.handleClick(e)}>
-            {
-                this.props.children
-            }
-            </AtTabs>
-      </View>
-    );
-  }
+    render() {
+        return (
+        <View className="order-container">
+            <AtTabs
+                className="tabs"
+                current={this.state.current}
+                scroll={this.props.scroll}
+                tabList={this.props.config}
+                onClick={(e) => this.handleClick(e)}>
+                {
+                    this.props.children
+                }
+                </AtTabs>
+        </View>
+        );
+    }
 }

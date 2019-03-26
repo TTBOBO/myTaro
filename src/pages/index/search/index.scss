@@ -1,0 +1,87 @@
+@import '../../../assets/css/animate.scss';
+.search-container{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    .search-bar{
+        width: 100%;
+        height: 132px;
+        padding: 0px 30px;
+        margin-bottom: 49px;
+        display: flex;
+        flex-flow: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        .search-con{
+            width: 665px;
+            height: 80px;
+            display: inherit;
+            align-items: center;
+            padding: 0px 18px;
+            background:rgba(40,40,40,1);
+            border-radius:7px;
+            transition: .8s linear;
+            .icon{
+                width: 44px;
+                height: 44px;
+                margin-right: 22px;
+            }
+            .search-input{
+                width: 590px;
+                font-size:28px;
+                font-weight:400;
+                color:#fff;
+            }
+        }
+        .no-code{
+            width: 600px !important;
+            .search-input{
+                width: 500px;
+            }
+        }
+        .cancel{
+            width: 85px;
+            height: 80px;
+            font-size: 24px;
+            color: #fff;
+            text-align: center;
+            line-height: 80px;
+        }
+    }
+    .history-con{
+        padding: 0 30px;
+        .history-header{
+            font-size:28px;
+            font-weight:400;
+            color:rgba(255,255,255,1);
+            margin-bottom: 31px;
+        }
+        .history-list{
+            width: 714px;
+            .history-item{
+                border:2px solid rgba(153,153,153,1);
+                border-radius:6px;
+                padding: 18px 22px;
+                font-size:26px;
+                font-weight:400;
+                color:rgba(199,199,199,1);
+                line-height: 26px;
+                margin-right: 36px;
+                float: left;
+                margin-bottom: 40px;
+            }
+        }
+    }
+    .no-thing{
+        font-size:24px;
+        font-family:PingFangSC-Regular;
+        font-weight:400;
+        color:rgba(255,255,255,1);
+        line-height:36px;
+        text-align: center;
+        margin-top: 140px;
+    }
+    .collecte-list{
+        height: calc(100% - 172px);
+    }
+}

@@ -57,7 +57,7 @@ class Index extends Component {
                             !item.isSwitch ? 
                             <AtListItem 
                                 title={item.title} 
-                                key={index} 
+                                key={index+'list'} 
                                 onClick={() => this.handleClick(item,index)}
                                 arrow={item.url ? 'right' : 'right'}
                                 thumb={item.thumb || ""}
@@ -66,7 +66,7 @@ class Index extends Component {
                             :
                             <AtListItem 
                                 title={item.title} 
-                                key={index} 
+                                key={index+'list'} 
                                 thumb={item.thumb || ""}
                                 note={item.note || ""}
                                 isSwitch

@@ -14,7 +14,7 @@
            
         }
         .tab-order-list{
-            background: #ddd;
+            // background: #ddd;
             .tab-order-item{
                 margin-bottom: 20px;
                 background: $white;
@@ -123,6 +123,11 @@
 .scroll-con{
     height: 100%;
 }
-.tab-order-list{
-    background: #ddd;
+// .tab-order-list{
+//     background: #ddd;
+// }
+.question-container{
+    .tab-order-list{
+        background: transparent !important;
+    }
 }

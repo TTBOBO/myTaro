@@ -10,20 +10,30 @@ export default class Index extends Component {
     defaultProps={
         tagetList:[],
         checked:false,
-        handeClick:() => {}
+        onHandeClick:() => {},
+        itemIndex:{},
+        customClassName:"show"
     }
 
     state={}
 
     componentDidMount () {} 
+    componentWillReceiveProps(nextProps){
+        if(nextProps.checked){
+
+        }
+        console.log(nextProps)
+    }
     render() {
-        const { tagetList,checked,handeClick } = this.props;
+        const { tagetList,checked,onHandeClick ,itemIndex,customClassName} = this.props;
         return (
-            // animated faster fadeInUp  fadeOutDown
-            <View className={`slide-tool-box ${checked ? ' show' : ' hidden-tool'}`} >
-                {tagetList.map((item,index) => {
-                    return (<View className="item" key={index} onclick={handeClick}>{item}</View>)
-                })}
+            // fadeInUp  fadeOutDown
+            <View className={`slide-tool-box ${customClassName}`} >
+                <View className={`con animated  ${checked ? ' show ' : ' hidden-tool '}`}>
+                    {tagetList.map((item,index) => {
+                        return (<View className="item" key={index} onClick={onHandeClick.bind(this,index,itemIndex)}>{item}</View>)
+                    })}
+                </View>
             </View>
         );
     }

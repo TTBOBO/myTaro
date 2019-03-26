@@ -16,36 +16,36 @@ export default class Index extends Component {
 
     state={
         list:[
-            {
-                pagePath: "pages/index/index",
-                text: "美璟世界",
-                iconPath: 'assets/img/guoji.png',
-                selectedIconPath: 'assets/img/guoji-s.png'
-            },
-            {
-                pagePath: "pages/auth/index",
-                text: "美璟商城",
-                iconPath: 'assets/img/shouyefill.png',
-                selectedIconPath: 'assets/img/shouye-s.png'
-            },
-            {
-                pagePath: "pages/cart/index",
-                text: "购物车",
-                iconPath: 'assets/img/cartfill.png',
-                selectedIconPath: 'assets/img/cart-s.png'
-            },
-            {
-                pagePath: "pages/auth/index",
-                text: "美璟优选",
-                iconPath: 'assets/img/dianpufill.png',
-                selectedIconPath: 'assets/img/dianpu-s.png'
-            },
-            {
-                pagePath: "pages/auth/index",
-                text: "个人中心",
-                iconPath: 'assets/img/my_fill_light.png',
-                selectedIconPath: 'assets/img/my-s.png'
-            }
+            // {
+            //     pagePath: "pages/index/index",
+            //     text: "美璟世界",
+            //     iconPath: 'assets/img/guoji.png',
+            //     selectedIconPath: 'assets/img/guoji-s.png'
+            // },
+            // {
+            //     pagePath: "pages/auth/index",
+            //     text: "美璟商城",
+            //     iconPath: 'assets/img/shouyefill.png',
+            //     selectedIconPath: 'assets/img/shouye-s.png'
+            // },
+            // {
+            //     pagePath: "pages/cart/index",
+            //     text: "购物车",
+            //     iconPath: 'assets/img/cartfill.png',
+            //     selectedIconPath: 'assets/img/cart-s.png'
+            // },
+            // {
+            //     pagePath: "pages/auth/index",
+            //     text: "美璟优选",
+            //     iconPath: 'assets/img/dianpufill.png',
+            //     selectedIconPath: 'assets/img/dianpu-s.png'
+            // },
+            // {
+            //     pagePath: "pages/auth/index",
+            //     text: "个人中心",
+            //     iconPath: 'assets/img/my_fill_light.png',
+            //     selectedIconPath: 'assets/img/my-s.png'
+            // }
         ],
         curren:0
     }

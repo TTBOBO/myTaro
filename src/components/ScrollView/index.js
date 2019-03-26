@@ -1,6 +1,6 @@
 import Taro , { Component } from '@tarojs/taro';
 import { ScrollView } from '@tarojs/components';
-// import './index.scss';
+import '../../assets/base.scss';
 export default class Index extends Component {
 
 
@@ -14,7 +14,9 @@ export default class Index extends Component {
         scrollLeft:'0',
         upperThreshold:'50',
         lowerThreshold:'50',
-        height:200
+        height:200,
+        onScrollToUpper:() => {},
+        onScrollToLower:() => {}
     }
 
     componentWillMount () {}
@@ -25,10 +27,9 @@ export default class Index extends Component {
 
     }
     onScrollToUpper(){
-        this.props.onScrolltoupper && this.props.onScrollToUpper();
+        this.props.onScrollToUpper && this.props.onScrollToUpper();
     }
     onScrollToLower(){
-        console.log(this.props)
         this.setState({
             currentIndex:this.state.currentIndex++
         },() =>{

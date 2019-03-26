@@ -2,6 +2,7 @@ import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button ,Image} from '@tarojs/components';
 import './index.scss';
 import coordtransform from 'coordtransform'
+const groupUrl = Taro.baseUrl+"/img/user/group10.png";
 export default class Index extends Component {
 
     config = {
@@ -53,7 +54,7 @@ export default class Index extends Component {
             <View className="order-goods-con ">
                 <View className="good-list mg-b">
                     <View className="good-item">
-                        <Image className="good-pic" src="http://localhost:8083/img/user/group10.png"/>
+                        <Image className="good-pic" src={groupUrl}/>
                         <View className="good-right">
                             <View className="left">
                                 <View className="good-name">CU梳妆凳</View>
@@ -72,7 +73,7 @@ export default class Index extends Component {
                     </View>
 
                     <View className="good-item">
-                        <Image className="good-pic" src="http://localhost:8083/img/user/group10.png"/>
+                        <Image className="good-pic" src={groupUrl}/>
                         <View className="good-right">
                             <View className="left">
                                 <View className="good-name">CU梳妆凳</View>

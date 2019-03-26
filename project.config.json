@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 13,
 			"list": [
 				{
 					"id": -1,
@@ -79,6 +79,56 @@
 					"id": -1,
 					"name": "首页",
 					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "生成海报",
+					"pathName": "pages/index/poster/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/index/search/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "商品详情",
+					"pathName": "pages/index/furniture/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "有问必答",
+					"pathName": "pages/index/question/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "家居指南",
+					"pathName": "pages/index/adviser/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "家居图谱",
+					"pathName": "pages/index/atlas/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "家居顾问",
+					"pathName": "pages/index/atlas/index",
+					"query": "",
 					"scene": null
 				}
 			]
