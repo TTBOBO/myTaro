@@ -7,7 +7,8 @@ export default class Index extends Component {
     static defaultProps = {
         config:[],
         currentIndex:0,
-        onTabsChange:() =>{}
+        onTabsChange:() =>{},
+        scroll:true
     }
 
     componentWillMount () {
@@ -34,7 +35,7 @@ export default class Index extends Component {
             <AtTabs
                 className="tabs"
                 current={this.state.current}
-                scroll
+                scroll={this.props.scroll}
                 tabList={this.props.config}
                 onClick={(e) => this.handleClick(e)}>
                 {

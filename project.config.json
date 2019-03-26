@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 13,
 			"list": [
 				{
 					"id": -1,
@@ -111,8 +111,8 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "家居顾问",
+					"id": 11,
+					"name": "家居指南",
 					"pathName": "pages/index/adviser/index",
 					"query": "",
 					"scene": null
@@ -121,6 +121,14 @@
 					"id": -1,
 					"name": "家居图谱",
 					"pathName": "pages/index/atlas/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "家居顾问",
+					"pathName": "pages/index/atlas/index",
+					"query": "",
 					"scene": null
 				}
 			]

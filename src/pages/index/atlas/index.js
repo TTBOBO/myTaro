@@ -1,5 +1,5 @@
 import Taro , { Component } from '@tarojs/taro';
-import { View, Text , Button} from '@tarojs/components';
+import { View, Text , Button,Image} from '@tarojs/components';
 import './index.scss';
 import '../adviser/index.scss';
 import SearchBar  from '../adviser/searchBar';
@@ -45,35 +45,71 @@ export default  class Index extends Component {
     }
     render() {
         const {placeholder,current,config} = this.state;
+        const bannerUrl = Taro.baseUrl+"/banner.png";
         return (
             <View className="atlas-container">
                 <SearchBar btnText={"美璟顾问"} placeholder={placeholder[current] || ''}/>
                 <View className="adviser-tabs">
-                    <Tabs currentIndex={current} config={config} onTabsChange={this.onTabsChange.bind(this)} > 
+                    <Tabs currentIndex={current} scroll={false} config={config} onTabsChange={this.onTabsChange.bind(this)} > 
                         {
                             config.map((_item,index) => {
                                 return (
                                     <Scroll index={index} key={index} current={current}>
                                         <View className="content">
-                                           123
+                                           {(index == 0 || index == 1) && (<View className="jz-contaniner">
+                                                <View className="jz-pic">
+                                                    <Image className="" src={bannerUrl}/>
+                                                </View>
+                                                <View className="jz-info-con">
+                                                    <View className="jz-info">
+                                                        <Text>Carl-Auböck</Text>
+                                                        <Text>英国知名建筑师</Text>
+                                                    </View>
+                                                    <View className="works-list">
+                                                        <View className="works-item">
+                                                            <View>杭州·白鹭郡东</View>
+                                                            <View className='at-icon at-icon-chevron-right'></View>
+                                                        </View>
+                                                        <View className="works-item">
+                                                            <View>杭州·九树公寓</View>
+                                                            <View className='at-icon at-icon-chevron-right'></View>
+                                                        </View>
+                                                        <View className="works-item more-item">
+                                                            <View className="more">查看更多</View>
+                                                            <View className='at-icon at-icon-chevron-down'></View>
+                                                        </View>
+                                                        
+                                                    </View>
+                                                </View>
+                                           </View>)}
+                                           {index == 2 && <View className="indoor">
+                                           <View className="jz-pic">
+                                                    <Image className="" src={bannerUrl}/>
+                                                </View>
+                                                <View className="jz-info-con">
+                                                    <View className="jz-info">
+                                                        <Text className="indoorer-name">Carl-Auböck</Text>
+                                                        <Text>英国知名建筑师</Text>
+                                                    </View>
+                                                    <View className="works-list">
+                                                        <View className="indoor-pro">
+                                                            <Image className="" src={bannerUrl}/>
+                                                            <Image className="" src={bannerUrl}/>
+                                                        </View>
+                                                        <View className="works-item">
+                                                            <View className="more">查看更多</View>
+                                                            <View className='at-icon at-icon-chevron-down'></View>
+                                                        </View>
+                                                        
+                                                    </View>
+                                                </View>
+                                           </View>}
                                         </View>
                                     </Scroll>
                                 )
                             })
                         }
                     </Tabs>
-
-                    {/* <AtTabs current={this.state.current} tabList={config}>
-                        <AtTabsPane current={this.state.current} index={0} >
-                        <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;' >标签页一的内容</View>
-                        </AtTabsPane>
-                        <AtTabsPane current={this.state.current} index={1}>
-                        <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页二的内容</View>
-                        </AtTabsPane>
-                        <AtTabsPane current={this.state.current} index={2}>
-                        <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页三的内容</View>
-                        </AtTabsPane>
-                    </AtTabs> */}
                 </View>
             </View>
         );

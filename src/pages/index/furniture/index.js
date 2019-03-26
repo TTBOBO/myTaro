@@ -102,7 +102,7 @@ export default class Index extends Component {
                     </View>
                 }
                 <View className="center-tool">
-                    {!toolbarFirst ? <View className="center-icon at-icon at-icon-chevron-up animated fadeInUp fast" src={iconUrl} onClick={this.changeToolbarTwo.bind(this)}></View> : <View></View>}
+                    {!toolbarFirst ? <View className={`center-icon at-icon at-icon-chevron-${!toolbarTwo?'up':"down"} animated fadeInUp fast`} src={iconUrl} onClick={this.changeToolbarTwo.bind(this)}></View> : <View></View>}
                     {!toolbarTwo &&<View className="center-icon at-icon at-icon-menu" src={iconUrl} onClick={this.changeToolbarFirst.bind(this)}></View>}
                 </View>
             </View>
