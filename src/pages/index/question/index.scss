@@ -74,12 +74,21 @@
                 }
                 .content-des{
                     font-size:24px;
-                    height:30rpx;//高度不能乱写，你要自己去看你的两行文字占多少高度
-                    overflow:hidden;//一定要写
-                    text-overflow: ellipsis;//超出省略号
-                    display:-webkit-box;//一定要写
-                    -webkit-line-clamp: 2;//控制行数
-                    -webkit-box-orient: vertical;//一定要写
+                    height:60px;//高度不能乱写，你要自己去看你的两行文字占多少高度
+                    display: -webkit-box;
+                    overflow: hidden;
+                    word-wrap: break-word;
+                    white-space: normal !important;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    text-overflow: ellipsis;
+                }
+                .content-desone{
+                    font-size:24px;
+                    display: -webkit-box;
+                    word-wrap: break-word;
+                    white-space: normal !important;
+                    -webkit-box-orient: vertical;
                 }
             }
         }

@@ -97,6 +97,13 @@
 					"scene": null
 				},
 				{
+					"id": 9,
+					"name": "商品详情",
+					"pathName": "pages/index/furniture/index",
+					"query": "",
+					"scene": null
+				},
+				{
 					"id": -1,
 					"name": "有问必答",
 					"pathName": "pages/index/question/index",
