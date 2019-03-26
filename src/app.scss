@@ -135,3 +135,19 @@ page{
 .select-no{
     background-image: url($baseUrl+':8083/img/cart/select_no.png');
 }
+
+
+// .at-tabs-pane{
+//     height:auto !important;
+// }
+.at-tabs-pane--active{
+    height:100% !important;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+// .at-tabs-pane--inactive{
+//     height:100% !important;
+
+// }

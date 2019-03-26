@@ -33,6 +33,7 @@ class App extends Component {
         'pages/order/index',
         'pages/cart/index',
         'pages/index/index',
+        'pages/mall/index',
         'pages/index/poster/index',
         'pages/index/search/index',
         'pages/index/furniture/index',
@@ -63,7 +64,7 @@ class App extends Component {
             selectedIconPath: 'assets/img/guoji-s.png'
           },
           {
-            pagePath: "pages/auth/index",
+            pagePath: "pages/mall/index",
             text: "美璟商城",
             iconPath: 'assets/img/shouyefill.png',
             selectedIconPath: 'assets/img/shouye-s.png'
