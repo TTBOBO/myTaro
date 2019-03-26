@@ -91,11 +91,11 @@ export default class Index extends Component {
                         </View> : <View className="footer-text-con animated fadeInUp faster">
                             <View className="text-box">
                                 <Text className="text">会员服务</Text>
-                                <Text className="text">会员服务</Text>
+                                <Text className="text">设计服务</Text>
                             </View>
                             <View className="text-box">
-                                <Text className="text">会员服务</Text>
-                                <Text className="text">会员服务</Text>
+                                <Text className="text">现场报道</Text>
+                                <Text className="text">家居指南</Text>
                             </View>
                         </View>
                     }  
