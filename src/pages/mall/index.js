@@ -2,7 +2,8 @@ import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button , Swiper, SwiperItem,ScrollView } from '@tarojs/components';
 import { Tabs , Scroll } from '~/components'
 import './index.scss';
-import { AtTabs, AtTabsPane } from 'taro-ui'
+import { AtTabs, AtTabsPane,AtDivider,AtIcon  } from 'taro-ui'
+const bannerUrl = Taro.baseUrl+"/banner.png";
 export default class Index extends Component {
 
     config = {
@@ -13,9 +14,10 @@ export default class Index extends Component {
 
     state={
         code:'',
-        current:2,
+        current:0,
+        selectIndex:0,
         config:[
-            {title:"品类",list:['','']},
+            {title:"品类",list:[{title:"家居",dataList:[{typename:"民用家居",data:['','','','','','','']},{typename:"民用家居1",data:['','','','','','','']}]},{title:"软装"},{title:"硬装"},{title:"服务"},{title:"家居"},{title:"家电"},{title:"更多"}]},
             {title:"品牌",list:[]},
             {title:"视频",list:[]},
         ],
@@ -33,6 +35,11 @@ export default class Index extends Component {
     onTabsChange(e){
         console.log(e);
     }
+    changeSwiperIndex(e){
+        this.setState({
+            selectIndex:e.detail ? e.detail.current : e
+        })
+    }
     render() {
     return (
         <View className="mall-container">
@@ -41,7 +48,7 @@ export default class Index extends Component {
                 <Input placeholder={'搜索商品'} value={code} onInput={this.handleChange.bind(this)} className="search-input"/>
             </View>
             <View className="mall-tabs adviser-tabs">
-            <AtTabs
+            {/* <AtTabs
                 className="tabs"
                 current={this.state.current}
                 scroll={this.props.scroll}
@@ -50,34 +57,73 @@ export default class Index extends Component {
                 {
                     this.props.children
                 }
-                </AtTabs>
-                <Tabs currentIndex={current} scroll={false} config={config} onTabsChange={this.onTabsChange.bind(this)} > 
-                    {this.state.config.map((item,index) => {
-                        return <AtTabsPane current={this.state.current} index={index} className="test" key={index}>
-                            <View className="item-con">
-                                <View className="type-con">
-                                    <View className="type-item">全部</View>
-                                    <View className="type-item active">全部</View>
+            </AtTabs> */}
+            <Tabs currentIndex={current} scroll={false} config={config} onTabsChange={this.onTabsChange.bind(this)} > 
+                    {this.state.config.map((item,index) => { //className="test"
+                        return <AtTabsPane current={this.state.current} index={index}  key={index}>
+                            {
+                                index == 0 && <View className="item-con">
+                                    <View className="type-con">
+                                        {item.list.map((typeItem,typeIndex) => {
+                                            return (
+                                                <View key={typeIndex} onClick={this.changeSwiperIndex.bind(this,typeIndex)} className={`type-item ${this.state.selectIndex == typeIndex ? 'active' : ''}`}>{typeItem.title}</View>
+                                            )
+                                        })}
+                                    </View>
+                                    <Swiper
+                                        className='swiper'
+                                        vertical
+                                        current={this.state.selectIndex}
+                                        circular
+                                        onChange={this.changeSwiperIndex}
+                                        >
+                                            {
+                                                item.list.map((typeItem,typeIndex) => {
+                                                    return (
+                                                        <SwiperItem key={typeIndex}>
+                                                            <ScrollView
+                                                                className='scrollview'
+                                                                scrollY
+                                                                scrollTop='0'
+                                                                style='height: 100%;'>
+                                                                {
+                                                                    item.list[0].dataList ? item.list[0].dataList.map((listItem,listIndex) => {
+                                                                        return (<View className='home-con' key={listIndex}>
+                                                                            <View className="type-name">
+                                                                                <AtDivider content={listItem.typename} fontColor='#000' lineColor='#777' />
+                                                                            </View>
+                                                                            <View className="home-con-type">
+                                                                                {
+                                                                                    listItem.data.map((item,index) => {
+                                                                                        return (<View key={index} className="item-con">
+                                                                                            <Image src={bannerUrl} />
+                                                                                            <View>民用家具</View>
+                                                                                        </View>)
+                                                                                    })
+                                                                                }
+                                                                            </View>
+                                                                        </View>)
+                                                                    }) : <View>{typeIndex}</View>
+                                                                }
+                                                            </ScrollView>
+                                                        </SwiperItem>
+                                                    )
+                                                })
+                                            }
+                                    </Swiper>
                                 </View>
-                                <Swiper
-                                    className='test-h'
-                                    vertical
-                                    circular>
-                                    <SwiperItem>
-                                    <ScrollView
-                                        className='scrollview'
-                                        scrollY
-                                        scrollTop='0'
-                                        style='height: 100%;'>
-                                        <View className='demo-text'>2</View>
-                                    </ScrollView>
-                                    
-                                    </SwiperItem>
-                                    <SwiperItem>
-                                    <View className='demo-text'>3</View>
-                                    </SwiperItem>
-                                </Swiper>
-                            </View>
+                            }
+                            {
+                               ( index == 1 ||  index == 2) &&  <View className="brand">
+                                    <View className="brand-item">
+                                        <View className="brand-left-con">
+                                            <Image src={bannerUrl} className="brand-image" />
+                                            <Text className="brand-des">高品质家具产品</Text>
+                                        </View>
+                                        <AtIcon className="brand-icon" value='chevron-right' size='30' color='#C7C7CC'></AtIcon>
+                                    </View>
+                                </View>
+                            }
                         </AtTabsPane>
                     })}
                 </Tabs>

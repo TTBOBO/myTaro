@@ -138,16 +138,30 @@ page{
 
 
 // .at-tabs-pane{
-//     height:auto !important;
+//     height:100% !important;
+// }
+.at-tabs__body{
+    // display: flex;
+    // flex-wrap: nowrap;
+}
+// at-tabs-pane{
+//     flex: 1;
 // }
 .at-tabs-pane--active{
-    height:100% !important;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
+    // height:100% !important;
+    // display: flex;
+    // position: absolute;
+    // top: 0;
+    // bottom: 0;
+    // float: left;
+    // width: 100%;
+    // margin-top: -100%;
 }
-// .at-tabs-pane--inactive{
-//     height:100% !important;
-
-// }
+.at-tabs-pane--inactive{
+    // width: 100%;
+    // // position: absolute;
+    // top: 0;
+    // float: left;
+    // // display: flex;
+    // height:100% !important;
+}
