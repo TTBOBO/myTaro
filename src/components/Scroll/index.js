@@ -25,9 +25,7 @@ export default class Index extends Component {
                     upperThreshold='20'
                     onScrollToLower={this.onScrollToLower}
                 >
-                <View className="tab-order-list">
                     {this.props.children}
-                </View>
                 </ScrollView>
             </AtTabsPane>
         );

@@ -165,3 +165,12 @@ page{
     // // display: flex;
     // height:100% !important;
 }
+.at-float-layout__container{
+    min-height: auto !important;
+}
+.at-float-layout{
+    .layout-body {
+        min-height: auto !important;
+        padding: 0 !important;
+    }
+}

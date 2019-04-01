@@ -43,6 +43,9 @@ class App extends Component {
         'pages/index/report/index',
         'pages/auth/index',
         'pages/order/OrderInfo/index',
+        'pages/order/sale/index',
+        'pages/order/sale/saleStatus/index',
+        'pages/order/sale/saleList/index',
         'pages/auth/address/addAddress/index',
         'pages/auth/address/addressList/index',
     ],
@@ -64,6 +67,7 @@ class App extends Component {
             selectedIconPath: 'assets/img/guoji-s.png'
           },
           {
+            // pages/order/index
             pagePath: "pages/mall/index",
             text: "美璟商城",
             iconPath: 'assets/img/shouyefill.png',
@@ -75,12 +79,12 @@ class App extends Component {
             iconPath: 'assets/img/cartfill.png',
             selectedIconPath: 'assets/img/cart-s.png'
           },
-          {
-            pagePath: "pages/auth/index",
-            text: "美璟优选",
-            iconPath: 'assets/img/dianpufill.png',
-            selectedIconPath: 'assets/img/dianpu-s.png'
-          },
+        //   {
+        //     pagePath: "pages/auth/index",
+        //     text: "美璟优选",
+        //     iconPath: 'assets/img/dianpufill.png',
+        //     selectedIconPath: 'assets/img/dianpu-s.png'
+        //   },
           {
             pagePath: "pages/auth/index",
             text: "个人中心",
